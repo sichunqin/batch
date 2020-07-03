@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Language" content="zh-CN"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="/mobile/login/index.css">
+    <title>微信登录</title>
+</head>
+<body>
+<div class="logo">
+    <img src="/mobile/login/logo.png">
+</div>
+<div class="welcome">
+    <p>Welcome Back!</p>
+    <!-- <p>大信数字化审计平台</p> -->
+</div>
+<form action="/WeChatLoginOn.html" method="post">
+    <div class="form">
+        <div class="uname">
+            <p>用户名</p>
+            <input id="userName" name="userName" type="text"><img src="/mobile/login/clear2.png">
+        </div>
+        <div class="upwd">
+            <p>密码</p>
+            <input id="password" name="password" type="password"><img src="/mobile/login/clear2.png">
+        </div>
+        <!--    <p class="forgetPassword">忘记密码？</p>-->
+        <button class="login">登 录</button>
+        <input id="weChatCode" name="weChatCode" type="text" style="display: none;" th:value="${weChatCode}">
+    </div>
+</form>
+<div class="d1"></div>
+<div class="d2"></div>
+</body>
+</html>
+<script type="text/javascript" src="/mobile/login/index.js"></script>

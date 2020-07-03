@@ -1,0 +1,148 @@
+A:link {
+    FONT-SIZE: 9pt;
+    CURSOR: hand;
+    COLOR: #0000ff;
+    FONT-FAMILY: "����";
+    TEXT-DECORATION: none
+}
+
+A:visited {
+    FONT-SIZE: 9pt;
+    CURSOR: hand;
+    COLOR: #ff0000;
+    FONT-FAMILY: "����";
+    TEXT-DECORATION: none
+}
+
+A:hover {
+    FONT-SIZE: 9pt;
+    CURSOR: hand;
+    COLOR: #ff8000;
+    FONT-FAMILY: "����";
+    TEXT-DECORATION: none
+}
+
+.Bard {
+    BORDER-RIGHT: #c0c0c0 1px solid;
+    BORDER-TOP: #c0c0c0 1px solid;
+    BORDER-LEFT: #c0c0c0 1px solid;
+    CURSOR: hand;
+    COLOR: #000000;
+    BORDER-BOTTOM: #c0c0c0 1px solid;
+    BACKGROUND-COLOR: #c0c0c0
+}
+
+.Baru {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    FONT-WEIGHT: bold;
+    BORDER-LEFT: #ffffff 1px solid;
+    CURSOR: hand;
+    COLOR: #0000ff;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-STYLE: italic;
+    BACKGROUND-COLOR: #c0c0c0
+}
+
+.TBStyle {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 0px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: "����";
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+
+.TDStyle {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 1px solid;
+    COLOR: #3333cc;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: "����";
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+
+.TDTitleStyle {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 1px solid;
+    COLOR: #3333cc;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: "����";
+    BACKGROUND-COLOR: menu;
+    TEXT-DECORATION: none
+}
+
+.IptStyle {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 0px solid;
+    WIDTH: 100%;
+    COLOR: red;
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: "����";
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+
+.IptInStyle {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 0px solid;
+    WIDTH: 100%;
+    COLOR: #000000;
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: "����";
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+
+.IptOutStyle {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 0px solid;
+    WIDTH: 100%;
+    COLOR: red;
+    BORDER-BOTTOM: #000000 0px solid;
+    FONT-FAMILY: "����";
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+
+.DivStyle {
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    FONT-SIZE: 9pt;
+    OVERFLOW: auto;
+    BORDER-LEFT: #000000 1px solid;
+    WIDTH: 100%;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: "����";
+    POSITION: relative;
+    HEIGHT: 200px;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-DECORATION: none
+}
+
+.button {
+    BORDER-RIGHT: #000000 0px solid;
+    BORDER-TOP: #c0c0c0 1px solid;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 0px solid;
+    WIDTH: 150px;
+    COLOR: #000000;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: "����";
+    BACKGROUND-COLOR: menu;
+    TEXT-DECORATION: none
+}

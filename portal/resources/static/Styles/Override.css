@@ -1,0 +1,555 @@
+/*!*!*全局样式自适应高度*!*!*/
+/*.window, .window .window-body {*/
+/*top: 10% !important;*/
+/*}*/
+
+/*.window-shadow {*/
+/*top: 10% !important;*/
+/*}*/
+
+.icon-windows {
+    background: rgba(0, 0, 0, 0) url("icons/windows.gif") no-repeat scroll center center;
+}
+
+.icon-saveandclose {
+    background: rgba(0, 0, 0, 0) url("icons/saveandclose.png") no-repeat scroll center center;
+}
+
+.icon-tab {
+    background: rgba(0, 0, 0, 0) url("icons/tab.gif") no-repeat scroll center center;
+}
+
+.icon-action {
+    background: rgba(0, 0, 0, 0) url("icons/action.gif") no-repeat scroll center center;
+}
+
+.icon-menu {
+    background: rgba(0, 0, 0, 0) url("icons/menu.gif") no-repeat scroll center center;
+}
+
+.icon-design {
+    background: rgba(0, 0, 0, 0) url("icons/design.png") no-repeat scroll center center;
+}
+
+.icon-up {
+    background: rgba(0, 0, 0, 0) url("icons/up.png") no-repeat scroll center center;
+}
+
+.icon-down {
+    background: rgba(0, 0, 0, 0) url("icons/down.png") no-repeat scroll center center;
+}
+
+.icon-browse {
+    background: rgba(0, 0, 0, 0) url("icons/browse.png") no-repeat scroll center center;
+}
+
+.icon-copy {
+    background: rgba(0, 0, 0, 0) url("icons/copy.png") no-repeat scroll center center;
+}
+
+.palette-menu-icon {
+    background: rgba(0, 0, 0, 0) url("icons/tree_folder_open.gif") no-repeat scroll center center;
+}
+
+
+.textbox-icon {
+    cursor: hand;
+}
+
+.combo-panel {
+    max-height: 300px;
+}
+
+/*色块图标*/
+/*红色*/
+.icon-red {
+    background: rgba(0, 0, 0, 0) url("icons/red.png") no-repeat scroll center center;
+}
+
+/*绿色*/
+.icon-green {
+    background: rgba(0, 0, 0, 0) url("icons/green.png") no-repeat scroll center center;
+}
+
+/*黄色*/
+.icon-yellow {
+    background: rgba(0, 0, 0, 0) url("icons/yellow.png") no-repeat scroll center center;
+}
+
+/*蓝色*/
+.icon-blue {
+    background: rgba(0, 0, 0, 0) url("icons/blue.png") no-repeat scroll center center;
+}
+
+/*灰色*/
+.icon-gray {
+    background: rgba(0, 0, 0, 0) url("icons/gray.png") no-repeat scroll center center;
+}
+
+/*黄棕色*/
+.icon-yellowbrown {
+    background: rgba(0, 0, 0, 0) url("icons/yellowbrown.png") no-repeat scroll center center;
+}
+
+/*曲别针*/
+.icon-paperclip {
+    background: url('icons/paperclip.png') no-repeat center center;
+}
+
+.mymask {
+    height: 40px;
+    z-index: 100000;
+    font-size: 12px;
+}
+
+.window .window-header .panel-with-icon {
+    padding-left: 20px;
+}
+
+.search-btn-icon {
+    display: inline-block;
+    font-size: 1px;
+    height: 20px;
+    width: 18px;
+    cursor: pointer;
+    position: absolute;
+    left: 35px;
+}
+
+.jOrgChart {
+    padding: 10px;
+    width: 98%;
+    height: 98%;
+    background-image: url(Images/ChartBackground.png);
+}
+
+.jOrgChart .node {
+    background-color: #9AC7C7;
+    display: inline-block;
+    width: 80px;
+    height: 100px;
+    z-index: 10;
+    margin: 0 2px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.datagrid-toolbar, .datagrid-pager {
+    /*background: #fff;*/
+    text-align: left;
+}
+
+.datagrid-toolbar {
+    text-align: right;
+}
+
+.PrintArea {
+    margin: 0px;
+    padding: 0px;
+}
+
+.checkbox {
+    margin: 1px;
+}
+
+.dateTimeGroupDividing {
+    width: 8%;
+    text-align: center;
+}
+
+.orgChartTitle {
+    line-height: 20px;
+}
+
+.orgChartCreateChildren {
+    margin-top: 0px;
+    margin-left: 23px;
+}
+
+.orgChartModifyColumn {
+    margin-top: 0px;
+}
+
+/*横向菜单样式*/
+#horizontalMenu {
+    width: 100%;
+    height: 40px;
+    margin: 0px auto;
+    background: #06C;
+    position: absolute;
+}
+
+.shouye {
+    width: 100px;
+    display: block;
+    position: absolute;
+    z-index: 99;
+    line-height: 40px;
+    height: 40px;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+#horizontalMenu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /* 隐藏默认列表符号*/
+    position: absolute;
+    right: 6%;
+}
+
+.horizontalMenuChild {
+    margin-left: 10% !important;
+}
+
+#horizontalMenu ul li {
+    background: #06C;
+    height: 40px;
+    line-height: 40px; /*行距*/
+    text-align: center; /*border-bottom: 1px solid #999;*/ /*border-right: 1px solid white;*/
+    position: relative;
+    width: 120px;
+    float: left;
+}
+
+.horizontalMenuChild a {
+    display: block;
+    font-size: 13px;
+    color: #FFF;
+    text-decoration: none; /*隐藏超廉价默认下划线*/
+}
+
+.horizontalMenuChild a:hover {
+    color: #96c2c1;
+    font-size: 14px;
+}
+
+#horizontalMenu ul li ul {
+    display: none; /*默认隐藏*/
+    width: 100px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    position: absolute;
+    left: 30px;
+}
+
+#horizontalMenu ul li ul li {
+    border-top: 1px solid white;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#horizontalMenu ul li ul li img {
+    text-align: right;
+}
+
+#horizontalMenu ul li ul li ul {
+    display: none; /*默认隐藏*/
+    width: 100px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    position: absolute;
+    left: 120px;
+    z-index: 10
+}
+
+/*
+.layout-split-west
+{
+    margin-top: 50px;
+}
+.layout-panel
+{
+    margin-top: 50px;
+}
+.layout-expand
+{
+    margin-top: 50px;
+}*/
+
+.panel-fit, .panel-fit body {
+    overflow-y: auto !important;
+}
+
+.CapClass {
+    height: 28px;
+    line-height: 28px;
+    padding-left: 5px
+}
+
+.textbox-label {
+    overflow: inherit !important;
+    margin-top: 5px !important;
+}
+
+.radiobutton {
+    margin-top: 5px !important;
+}
+
+/*折叠面板布局问题*/
+.accordion-body {
+
+}
+
+/*****TreeBook css********/
+/******Start********/
+.treeBook dt {
+    /*height: 20px;*/
+    line-height: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    color: #035aff;
+    margin-top: 5px;
+    font-family: '微软雅黑';
+}
+
+.treeBook dd h2 {
+    font-size: 15px;
+}
+
+.treeBook dd ul {
+    padding-left: 0px;
+    margin-left: -15px;
+}
+
+.treeBook dd ul li {
+    list-style: none;
+    background: url(icons/index/icon_write.png) no-repeat;
+    padding-left: 20px;
+}
+
+.treeBook dd ul li ul li {
+    padding-left: 40px;
+}
+
+.treeBookSpan {
+    display: inline-flex;
+    float: right;
+    /*margin-right: 20px;*/
+    cursor: pointer;
+    color: #359fd8;
+    position: relative;
+}
+
+.treeBookSpan input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+    visibility: hidden;
+}
+
+.showReview .treeBookSpan:first-child input[type='checkbox'] + label {
+    display: inline-block;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    background: url("icons/index/icon_sure_off.png") no-repeat center center;
+}
+
+.showReview .treeBookSpan:first-child input[type='checkbox']:checked + label {
+    background: url("icons/index/icon_sure.png") no-repeat center center;
+}
+
+.showReview .treeBookSpan:first-child input[type='checkbox'][onclick="return false"] + label {
+    background-size: cover;
+    background: #dedede;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid #aaafb3;
+    cursor: default;
+}
+
+.treeBookLink {
+    margin-right: 20px;
+    cursor: pointer;
+    color: #359fd8;
+    display: block;
+    margin-top: 30px;
+    background: url("icons/index/icon_writing.png") no-repeat;
+    padding-left: 25px;
+}
+
+/*首页方块菜单*/
+.navUl {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navUl li {
+    flex-grow: 1;
+    list-style-type: none;
+    border: 1px solid #4e4e4e;
+    text-align: center;
+    height: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.navUl li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 60px;
+
+}
+
+.navUl li a:hover {
+    background: #2e69fd;
+    color: white;
+}
+
+.additionDt {
+    color: #333333 !important;
+}
+
+.saveBtn {
+    position: relative;
+    top: -560px;
+    left: 100px;
+    width: 50px;
+    text-align: center;
+    height: 30px;
+    border: 0;
+    background: #f1f1f1
+}
+
+.switchbutton {
+    margin-top: 3px;
+}
+
+.toolbar-title {
+    float: left;
+    line-height: 35px;
+    /*margin-left: 20px;*/
+    font-size: 15px;
+    color: rgba(31, 149, 211, 1);
+}
+
+/*****End********/
+
+/*****RegionPanel css********/
+/******Start********/
+/*.regionpanel textarea {*/
+/*    width: 100%;*/
+/*}*/
+
+/*.tabLeft {*/
+/*    text-align: right;*/
+/*    width: 15%;*/
+/*}*/
+
+/*.tabRigth {*/
+/*}*/
+
+/*****End********/
+/*树节点只读样式*/
+.treeNodeReadonlyStyle {
+    color: rgba(0, 0, 0, 0.22);
+}
+
+/*树节点拼接状态样式*/
+.TreeStateText {
+    display: inline-block;
+    margin-left: 20px;
+    color: #44526a;
+}
+
+.TreeStateText a {
+    color: #1f95d3;
+    text-decoration: none;
+}
+
+/*复核意见页面样式*/
+.ReviewBox textarea {
+    width: 100%
+}
+
+.ReviewBox .tabLeft {
+    text-align: right;
+    padding-right: 10px;
+    width: 10%;
+}
+
+
+/*调整列表选择中行样式优先级*/
+.datagrid-row-selected {
+    background: #CCE6FF !important;
+}
+
+/*重写JExcel样式*/
+/*********Start***********/
+.jexcel td {
+    height: 30px;
+}
+
+.dxnJexcelTdPrompt {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*********End***********/
+
+/*ReviewPanel查看富文本域样式*/
+/*********Start***********/
+.dxnReviewHtmlContent {
+    width: 100%;
+    height: 140px;
+    background: rgba(245, 246, 249, 1);
+    border-radius: 4px;
+    overflow: auto;
+}
+
+/*********End***********/
+
+/*多文件上传控件样式*/
+/*********Start***********/
+.dxnDownloadableFileMuch {
+    background-color: #00bbee;
+    float: left;
+    width: 32px;
+    height: 52px;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+
+
+/*********End***********/
+
+/*照片控件样式*/
+/*********Start***********/
+.dxnPhoneDeleteDiv {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    left: -20px;
+    background: url(icons/index/icon_delete_red.png)no-repeat right top;
+    border: none;
+}
+
+/*********End***********/
+
+/*发布通知弹窗横向滚动条调整*/
+form[basecode="advise"] div[controltype="Center"]{
+    overflow-x: hidden;
+}

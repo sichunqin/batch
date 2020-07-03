@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <link href="/Styles/login.css" rel="stylesheet" type="text/css"/>
+    <title>登录</title>
+    <script>
+        var Login = function () {
+            var btn = document.getElementById("btnSumit");
+            var userName = document.getElementById("userName");
+            var password = document.getElementById("password");
+            if (userName.value == "" || password.value == "") {
+                showMessage("用户名或密码不能为空！");
+                return;
+            }
+            var validationCode = document.getElementById("ValidationCode");
+            if (validationCode && validationCode.value == "") {
+                showMessage("验证码不能为空！");
+                return;
+            }
+            document.forms[0].submit();
+        }
+
+        function keydown(frm, event) {
+            var event = window.event ? window.event : event;
+            if (event.keyCode == 13) {
+                Login();
+            }
+        }
+
+        var showMessage = function (message) {
+            var spanMessage = document.getElementById("spanMessage");
+            spanMessage.innerHTML = message;
+        }
+
+        var refarshCode = function (img) {
+            img.src = img.src + Math.random();
+        }
+
+    </script>
+</head>
+<body>
+<div class="main">
+    <form action="/LogOn.html" method="post">
+        <div class="logindiv">
+            用户名：
+            <input data-val="true" data-val-required="*" id="userName" name="userName"
+                   onkeydown="keydown(this.form,event)" style="width:140px;" type="text" value="admin"/>
+            <span class="field-validation-valid" data-valmsg-for="userName" data-valmsg-replace="true"></span>
+            <br>
+            密码：
+            <input autocomplete="off" data-val="true" data-val-required="*" id="password" name="password"
+                   onkeydown="keydown(this.form,event)" style="width:140px;" type="password" value="1"/>
+            <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span><br>
+            <span>验证码：
+                    <input id="ValidationCode" name="ValidationCode" onkeydown="keydown(this.form,event)"
+                           style="width:76px;" type="text" value="1"/>
+                    <img height="24" src="/Account/GetCheckCode?width=60&height=24&dt=2019/2/28 19:27:14"
+                         onclick="refarshCode(this)"
+                         style="width:60px;heigth:24px; cursor: pointer;vertical-align: middle;"/>
+                    <span class="field-validation-valid" data-valmsg-for="ValidationCode"
+                          data-valmsg-replace="true"></span><br>
+                </span>
+            <div class="loginbar">
+                <input id="btnSumit" type="button" onclick="Login()" value=""/>
+                <span id="spanMessage" th:text="${mes}" class="red_ero"></span>
+            </div>
+            <div class="footer">
+                <a href="http://www.eekuo.com">北京XXX科技有限公司</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：010-88888888
+                &nbsp;&nbsp;&nbsp;QQ：8888888888
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

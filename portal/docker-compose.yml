@@ -1,0 +1,8 @@
+version: '2' 
+services:
+  portal:  # 指定服务名称
+    image: portal  # 指定 Dockerfile 所在路径
+    ports:    # 指定端口映射
+      - "8080:8080"
+    volumes:
+      - .:/code

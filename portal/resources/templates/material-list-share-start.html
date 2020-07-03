@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="资料清单"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/themes/metro/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/material-list.css">
+    <script type="text/javascript" src="/Using/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/Using/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/Using/clipboard/clipboard.min.js"></script>
+</head>
+
+<body class="easyui-layout">
+<div data-options="region:'center'" style="padding-top: 100px;text-align: center;">
+    <img src="/Styles/Images/DaxinBanner.png" alt="">
+    <div style="width: 600px;height:280px;border: 1px solid rgb(121,121,121);margin:50px auto;">
+        <div style="width: 100%;height: 60px;background-color: rgb(113, 128, 190);font-family: Arial; font-size: 18px; color: white;font-weight: 400;line-height: 60px;">
+            [[${projectName}]]
+        </div>
+
+        <div style="padding: 50px;" th:if="${status != 0}">
+            <div style="font-size: 18px;">
+                <span th:if="${status == 1}">资料分享已结束,如需继续使用,请联系事务所管理员!</span>
+                <span th:if="${status == 2}">资料分享已过期,如需继续使用,请联系事务所管理员!</span>
+                <span th:if="${status == 3}">网址不合法</span>
+            </div>
+        </div>
+
+        <div style="padding: 50px;text-align: left;" th:if="${status == 0}">
+            <table cellpadding="5">
+                <tr>
+                    <td>请输入校验码：</td>
+                </tr>
+                <tr>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="code-input" class="easyui-textbox" type="text" style="width:400px" />
+                        <a href="javascript:void(0)" class="easyui-linkbutton" style="width:70px;margin-left: 10px;"
+                           onclick="enter()">进入项目</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function enter() {
+        $.ajax({
+            url: '/ml/start/' + [[${shareId}]],
+            type: 'POST',
+            data: {code: $('#code-input').textbox('getValue')},
+            success: function (data) {
+                window.location.replace(data);
+            },
+            error: function () {
+                $.messager.alert('错误', '校验码错误!', 'error');
+                return false;
+            }
+        });
+    }
+
+</script>
+</html>

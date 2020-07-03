@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="Scripts/sign/jquery-1.4.2.min.js"></script>
+    <script src="Scripts/sign/iWebProduct.js"></script>
+    <link rel='stylesheet' type='text/css' href='Scripts/sign/iWebProduct.css'/>
+</head>
+<script language="javascript">
+    var mRecordID;
+    var fileName;
+    var fileType;
+    var filePath;
+    var userName;
+    var isSign;
+    var readOnly;
+    var addin = null;
+    var nClick = 1;
+    var entityId;
+    var entity;
+    var partnerIDCard = "";
+    var cpa1IDCard = "";
+    var cpa2IDCard = "";
+
+    function load() {
+        // 请求显示隐藏数据
+        var buttonControl = window.opener.openerSignInfo;
+
+        if (buttonControl != null) {
+            partnerIDCard = buttonControl.partnerIDCard;
+            cpa1IDCard = buttonControl.cpa1IDCard;
+            cpa2IDCard = buttonControl.cpa2IDCard;
+            if (!buttonControl) {
+                $("#C_signature").css("display", "none")
+                $("#C_CPA1").css("display", "none")
+                $("#C_CPA2").css("display", "none")
+                $("#C_Print").css("display", "none")
+                $("#C_Printcopies").css("display", "none")
+                $("#C_seal").css("display", "none")
+                $("#C_save").css("display", "none")
+            }
+            // if (!buttonControl.iSCanBeStamped) {
+            //     $("#C_signature").css("display", "none")
+            //     $("#C_CPA1").css("display", "none")
+            //     $("#C_CPA2").css("display", "none")
+            // }
+            if (!buttonControl.isCPA1) {
+                $("#C_CPA1").css("display", "none")
+            }
+            if (!buttonControl.isCPA2) {
+                $("#C_CPA2").css("display", "none")
+            }
+            if (!buttonControl.isPartner) {
+                $("#C_signature").css("display", "none")
+                // $("#C_Printcopies").css("display","none")
+            }
+        }
+
+        mRecordID = document.getElementById('recordId').innerText;
+        fileName = document.getElementById('fileName').innerText;
+        fileType = document.getElementById('fileType').innerText;
+        filePath = document.getElementById('filePath').innerText;
+        userName = document.getElementById('userName').innerText;
+        isSign = document.getElementById('isSign').innerText;
+        readOnly = document.getElementById('readOnly').innerText;
+        entityId = document.getElementById('entityId').innerText;
+        entity = document.getElementById('entity').innerText;
+        if (readOnly == "true") {
+            document.getElementById('showTD').style.visibility = 'hidden';
+        }
+
+        window.setTimeout(function load1() {
+            addin = iWebPDF2018.iWebPDFFun;
+            iWebPDF2018.Options.TabCommandBarVisible = false;
+            if (addin != null) {
+                addin.WebUrl = "http://" + window.location.host + "/webofficeServlet?docType=2";
+                addin.RECORDID = mRecordID;
+                addin.FILENAME = fileName;
+                addin.FILETYPE = fileType;
+                addin.USERNAME = userName;
+                addin.WebSetMsgByName("FILEPATH", filePath);
+                addin.EXTPARAM = "";
+                var ret = addin.WebOpen();
+            }
+            HideToolBar();
+            iWebPDF2018.Options.TabBarVisible = false;  //隐藏标题名称
+            iWebPDF2018.iWebPDFFun.Zoom = 100;
+        }, 3000);
+    }
+
+    function HideToolBar() {
+        var nCount = iWebPDF2018.CommandBars.Count;
+        nClick++;
+        for (var i = 0; i < nCount; i++) {
+            if (i < nCount - 2) {
+                iWebPDF2018.CommandBars.Item(i).Visible = false;
+            } else {
+                iWebPDF2018.CommandBars.Item(i).Visible = true;
+            }
+        }
+    }
+
+    //获取id的高度
+    function getHeight(id) {
+        return document.getElementById(id).offsetHeight;
+    }
+
+    //状态信息
+    function addState(value) {
+        $("#state").html(value);
+    }
+
+    function signSave() {
+        //在线保存文档
+        if (0 == iWebPDF2018.Documents.Count) {
+            console.log("没有要保存的文档");
+            return false;
+        }
+        if (addin != null) {
+            var count = iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.SignatureCount();
+            addin.WebUrl = "http://" + window.location.host + "/webofficeServlet?docType=2";
+            addin.RECORDID = mRecordID;
+            addin.FILENAME = "";
+            addin.FILETYPE = fileType;
+            addin.USERNAME = userName;
+            addin.WebSetMsgByName("FILEPATH", filePath);
+            addin.WebSetMsgByName("SignatureCount", count);
+            addin.EXTPARAM = "";
+            var ret = iWebPDF2018.COMAddins.Item("KingGrid.iWebPDFFun").Object.WebSave();
+            if (ret) {
+                var data = {};
+                var url = "";
+                if (entity == "oAArchivesSeal") {
+                    url = "/OAArchivesSealAttachment-putSignatureStatus.do";
+                } else {
+                    url = "/ReportFile-putSignatureStatus.do";
+                }
+                data.entityId = entityId;
+                data.isSign = true;
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    data: data,
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function (data) {
+                        //调用生成二维码接口
+                        $.ajax({
+                            type: 'post',
+                            url: '/ReportFile-callQRCodeInterface.do',
+                            async: false,
+                            data: {'entityId': entityId},
+                            success: function (result) {
+
+                            }
+                        });
+
+                        if (window.opener.openerInstance && window.opener.openerInstance.Load) {
+                            window.opener.openerInstance.Load();
+                        }
+                    },
+                    error: function (e) {
+
+                    }
+                });
+            }
+        }
+    }
+
+    //加盖公章
+    function mCreateSignature(isOfficialSeal) {
+        try {
+            var signName = isOfficialSeal ? '大信测试章' : userName;
+            // alert("1");
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AllowSignName = "中国注册会计师测试201";
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AddSignatureByDlg(1);
+
+            iWebPDF2018.iWebPDFFun.AllowSignName = signName;
+            iWebPDF2018.iWebPDFFun.AddSignatureByDlg(1);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    //加盖合伙人章
+    function mCreateSignatureByPartner() {
+        try {
+            //var signName = isOfficialSeal ? '测试章' : userName;
+            // alert("1");
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AllowSignName = "中国注册会计师测试201";
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AddSignatureByDlg(1);
+
+            iWebPDF2018.iWebPDFFun.AllowSignName = partnerIDCard;
+            iWebPDF2018.iWebPDFFun.AddSignatureByDlg(1);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    //加盖注师章1
+    function mCreateSignatureByCPA1() {
+        try {
+            //var signName = isOfficialSeal ? '测试章' : userName;
+            // alert("1");
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AllowSignName = "中国注册会计师测试201";
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AddSignatureByDlg(1);
+
+            iWebPDF2018.iWebPDFFun.AllowSignName = cpa1IDCard;
+            iWebPDF2018.iWebPDFFun.AddSignatureByDlg(1);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    //加盖注师章2
+    function mCreateSignatureByCPA2() {
+        try {
+            //var signName = isOfficialSeal ? '测试章' : userName;
+            // alert("1");
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AllowSignName = "中国注册会计师测试201";
+            //iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.AddSignatureByDlg(1);
+
+            iWebPDF2018.iWebPDFFun.AllowSignName = cpa2IDCard;
+            iWebPDF2018.iWebPDFFun.AddSignatureByDlg(1);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    //获取印章个数
+    function mSignatureCount() {
+        try {
+            var count = iWebPDF2018.COMAddins.Item("KingGrid.iWebPDF2015").Object.SignatureCount();
+            console.log(count);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    //打印
+    function mPrint() {
+        try {
+            if (0 == iWebPDF2018.Documents.Count) {
+                console.log("没有已打开文档");
+                return;
+            }
+            //参数1 打印机名称 string
+            //参数2 打印页面范围 连续页面范围 "1-9"这种 string
+            //参数3 打印内容选项，下面几个值的或值 1：文档内容 2：批注 4：图章 8：表单 256：灰度 int
+            //参数4 打印份数 int
+            //参数5 后台打印 boolean
+            var missing;
+            var parinInt = $(".printInt").val() != "" ? $(".printInt").val() : "1"
+            iWebPDF2018.Documents.ActiveDocument.PrintOut(missing, missing, 15, parseInt(parinInt));
+            addState("打印成功。");
+            var data = {};
+            var url = "";
+            if (entity == "oAArchivesSeal") {
+                url = "/OAArchivesSealAttachment-putPrintNumber.do";
+            } else {
+                url = "/ReportFile-putPrintNumber.do";
+            }
+            data.entityId = entityId;
+            data.printNum = parinInt;
+            $.ajax({
+                type: "post",
+                url: url,
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                success: function (data) {
+                },
+                error: function (e) {
+                }
+            });
+        } catch (e) {
+            addState("打印失败。");
+            console.log(e.description);
+        }
+    }
+
+</script>
+<body onload="load()" style="overflow-y: hidden; overflow-x: hidden">
+<span id="recordId" style="display: none" th:text="${recordId}" class="red_ero"></span>
+<span id="fileName" style="display: none" th:text="${fileName}" class="red_ero"></span>
+<span id="fileType" style="display: none" th:text="${fileType}" class="red_ero"></span>
+<span id="filePath" style="display: none" th:text="${filePath}" class="red_ero"></span>
+<span id="userName" style="display: none" th:text="${userName}" class="red_ero"></span>
+<span id="isSign" style="display: none" th:text="${isSign}" class="red_ero"></span>
+<span id="readOnly" style="display: none" th:text="${readOnly}" class="red_ero"></span>
+<span id="entityId" style="display: none" th:text="${entityId}" class="red_ero"></span>
+<span id="entity" style="display: none" th:text="${entity}" class="red_ero"></span>
+<table cellspacing='0' cellpadding='0'>
+    <tr>
+        <td id="showtr" colspan="2">
+            <table id="functionBox" border="0">
+                <tr>
+                    <td id="activeBox">
+                        <table id="activeTable">
+                            <tr>
+                                <td colspan="2" id="activeTd">
+                                    <script src="Scripts/sign/iWebPDF2018.js"></script>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td id="showTD" width="204px" height="30px" valign="top">
+                        <table id="functionTable" cellspacing='4' cellpadding='0'>
+                            <tr class="test">
+                                <td valign="middle" class="tableFather">
+                                    <table id="readT2" width="100%" cellspacing='0' cellpadding='0'>
+                                        <tr id="C_seal">
+                                            <td class="dot-size">
+                                                <input type=button class=button value="公章"
+                                                       onclick="mCreateSignature(true)">
+                                            </td>
+                                        </tr>
+                                        <tr id="C_signature">
+                                            <td class="dot-size">
+                                                <input type=button class=button value="签字合伙人章"
+                                                       onclick="mCreateSignatureByPartner()">
+                                            </td>
+                                        </tr>
+                                        <tr id="C_CPA1">
+                                            <td class="dot-size">
+                                                <input type=button class=button value="签字注师1章"
+                                                       onclick="mCreateSignatureByCPA1()">
+                                            </td>
+                                        </tr>
+                                        <tr id="C_CPA2">
+                                            <td class="dot-size">
+                                                <input type=button class=button value="签字注师2章"
+                                                       onclick="mCreateSignatureByCPA2()">
+                                            </td>
+                                        </tr>
+                                        <tr id="C_save">
+                                            <td class="dot-size">
+                                                <input type=button class=button value="保存签章" onclick="signSave()">
+                                            </td>
+                                        </tr>
+                                        <tr id="C_Print">
+                                            <td class="dot-size">
+                                                <input type=button class=button value="打印" onclick="mPrint()">
+                                            </td>
+                                        </tr>
+                                        <tr id="C_Printcopies">
+                                            <td class="dot-size">
+                                                <label>打印份数</label>
+                                                <input type="number" style="width: 50%" value="1" min="1"
+                                                       class="printInt">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

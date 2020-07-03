@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    background: #27282d;
+    color: #fff;
+    position: relative;
+    padding: 30px;
+    text-align: center;
+}
+
+.logo {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.welcome {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 35px;
+}
+
+.welcome p {
+    margin: 0;
+}
+
+.form {
+    margin-top: 100px;
+}
+
+.form p {
+    margin: 0;
+    text-align: left;
+}
+
+.uname, .upwd, .forgetPassword {
+    position: relative;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.uname input, .upwd input {
+    background: #27282d;
+    border: 0;
+    color: #fff;
+    border-bottom: 2px solid #999;
+    width: 100%
+}
+
+.uname img, .upwd img {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 15px;
+    display: none;
+}
+
+.forgetPassword {
+    text-align: right !important;
+    font-size: 14px;
+    margin-bottom: 25px !important;
+}
+
+.login {
+    background: #f8be50;
+    border: 0;
+    color: #fff;
+    width: 95%;
+    padding: 15px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.d1, .d2 {
+    width: 150px;
+    height: 150px;
+    background: #f8be50;
+    position: fixed;
+    border-radius: 50%;
+}
+
+.d1 {
+    top: 10%;
+    left: -130px;
+}
+
+.d2 {
+    bottom: 10%;
+    right: -130px;
+}

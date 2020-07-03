@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;Databasename=DaXinJavaBS
+    tomcat:
+      username: sa
+      password: sa123!
+  redis:
+    host: 192.168.70.41
+    port: 6379
+    password:
+  jpa:
+    show-sql: false
+
+server:
+  port: 8081
+
+pojo:
+  creator:
+    path:
+      formPath: D:\DXN\Project\Daxin\temp\大信\
+      project: D:\DXN\Project\Daxin\daxin_bs\domain\src\main\java\com\dxn\model
+
+dxn:
+  file:
+    upload-path: D:\DXN\Project\Upload
+    cs-upload-path:
+  risk-level:
+    file-path: D:\risklevel\RiskLevel.xlsx
+  server-name: http://192.168.70.41:8081
+
+workflow:
+  path: http://192.168.70.41:8888
+
+cas:
+  client-host-url: http://192.168.70.41:8081

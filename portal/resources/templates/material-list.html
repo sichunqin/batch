@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="资料清单"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <!--<link rel="stylesheet" type="text/css" href="../static/Using/easyui/themes/metro/easyui.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="../static/Using/easyui/themes/icon.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="../static/Using/easyui/material-list.css">-->
+    <!--<script type="text/javascript" src="../static/Using/easyui/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="../static/Using/easyui/jquery.easyui.min.js"></script>-->
+    <!--<script type="text/javascript" src="../static/Using/clipboard/clipboard2.min.js"></script>-->
+
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/themes/metro/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/material-list.css">
+    <script type="text/javascript" src="/Using/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/Using/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/Using/clipboard/clipboard.min.js"></script>
+    <script th:inline="javascript">
+        var projectId = [[${projectId}]];
+        var userCode = [[${userCode}]];
+    </script>
+</head>
+
+<body class="easyui-layout">
+<div id="shareDiv" data-options="region:'north',border:false" style="height:60px; padding:10px">
+    <div style="padding:5px 0;">
+
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add'" style="width:100px"
+           th:onclick="'javascript:creatShare('+${shareInfo.id}+')'">创建分享</a>
+    </div>
+</div>
+<div data-options="region:'west',split:true,title:'项目架构'" style="width:250px; padding:10px;">
+    <ul id="dept-tree"></ul>
+</div>
+<div data-options="region:'center'">
+    <div id="ml-tabs" style="width:100%;height:100%">
+
+        <div title="资料清单" style="padding:10px">
+            <div id="uploadDiv" style="padding:5px 0;">
+            <form id="ml-file-upload-form" method="post" enctype="multipart/form-data">
+                <input id="open-file-ml" name="mlfiles" type="text"  style="width:300px;">
+                <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px" onclick="uploadMl()">上传</a>
+            </form>
+            </div>
+            <table id="dg-material-list" class="easyui-datagrid" title="资料清单列表" style="width:700px;height:auto"
+                   data-options="singleSelect: true,toolbar: '#tb-material-list'">
+                <thead>
+                <tr>
+                    <th data-options="field:'_sort',width:48,align:'center',formatter:function(value,row,index){return index+1;}">
+                        编号
+                    </th>
+                    <th data-options="field:'_name',width:580,formatter:dgMlListNameFormator">资料名称</th>
+                    <th data-options="field:'_oper',width:70,align:'center',formatter:dgMlListOperFormator">
+                        操作
+                    </th>
+                </tr>
+                </thead>
+            </table>
+
+            <div id="tb-material-list" style="height:auto">
+                <!--<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true"
+                   onclick="insert()">添加</a>&nbsp;&nbsp;
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true"
+                   onclick="remove()">删除</a>&nbsp;&nbsp;
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"
+                   onclick="saveMaterialList()">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <input id="txt-ml-search" class="easyui-searchbox" data-options="prompt:'资料名称',searcher:attachmentMlSearch"
+                       style="width:200px"/>
+            </div>
+        </div>
+
+        <div title="报表及科目明细表上传" style="padding:10px">
+            <div style="padding:5px 0;">
+                <form id="report-file-upload-form" method="post" enctype="multipart/form-data">
+<!--                    <a href="/ml/download-template" class="easyui-linkbutton"-->
+<!--                       style="width:150px;margin-left:10px;margin-right:20px;">明细表模板下载</a>-->
+                    <a href="javascript:void(0)" class="easyui-linkbutton"
+                       style="width:150px;margin-left:10px;margin-right:20px;" onclick="downloadTemplate()">明细表模板下载</a>
+                    <input id="open-file-report" name="reportfiles" type="text" style="width:300px;">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px" onclick="uploadReport()">上传</a>
+                </form>
+            </div>
+            <div title="报表及科目明细表" style="padding:10px">
+                <table id="dg-report-list" class="easyui-datagrid"  style="width:700px;height:auto"
+                       data-options="
+                    singleSelect: true,
+                    toolbar: '#tb-report-list'
+                ">
+                    <thead>
+                    <tr>
+                        <th data-options="field:'_sort',width:48,align:'center',formatter:function(value,row,index){return index+1;}">
+                            编号
+                        </th>
+                        <th data-options="field:'_name',width:580,formatter:dgReportListNameFormator">资料名称</th>
+                        <th data-options="field:'_oper',width:70,align:'center',formatter:dgReportListOperFormator">操作
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+
+                <div id="tb-report-list" style="height:auto">
+                    &nbsp;&nbsp;
+                    <input id="txt-report-search" class="easyui-searchbox"
+                           data-options="prompt:'资料名称',searcher:reportSearch" style="width:200px"/>
+                </div>
+            </div>
+        </div>
+
+        <!--<div title="附件上传" style="padding:10px">
+            <div style="padding:5px 0;">
+                <form id="attachment-file-upload-form" method="post" enctype="multipart/form-data"
+                      style="margin-left:10px;">
+                    <input id="open-file-attachment" name="attachmentfiles" type="text" style="width:300px;">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" style="width:80px"
+                       onclick="uploadAttachment()">上传</a>
+                </form>
+            </div>
+            <div title="附件列表" style="padding:10px">
+                <table id="dg-attachment-list" class="easyui-datagrid"
+                       style="width:700px;height:auto"
+                       data-options="
+                    singleSelect: true,
+                    toolbar: '#tb-attachment-list'
+                ">
+
+                    <thead>
+                    <tr>
+                        <th data-options="field:'_sort',width:48,align:'center',formatter:function(value,row,index){return index+1;}">
+                            编号
+                        </th>
+                        <th data-options="field:'_name',width:580,formatter:dgAttachmentListNameFormator">附件名称</th>
+                        <th data-options="field:'_oper',width:70,align:'center',formatter:dgAttachmentListOperFormator">
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+
+                <div id="tb-attachment-list" style="height:auto">
+                    &nbsp;&nbsp;
+                    <input id="txt-attachment-search" class="easyui-searchbox"
+                           data-options="prompt:'附件名称',searcher:attachmentSearch" style="width:200px"/>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+
+<div id="dlg" class="easyui-dialog" title="创建分享" style="width:800px;height:260px;padding:10px"
+     data-options="buttons:'#dlg-buttons',closed:true">
+    <table cellpadding="5">
+        <tr>
+            <td>有效期：</td>
+            <td>
+                <span id="valid-date"
+                      th:text="${shareInfo.terminated} ? '已终止' : ${#temporals.format(shareInfo.validDate,'yyyy-MM-dd')}"></span>
+                <a id="share-renew-button" href="javascript:void(0)"
+                   th:onclick="'javascript:shareRenew('+${shareInfo.id}+')'" >续期</a>
+                <a id="share-terminate-button" href="javascript:void(0)"
+                   th:onclick="'javascript:shareTerminate('+${shareInfo.id}+')'"
+                   th:style="'display:' + @{(${shareInfo.terminated} ? 'none' : 'inline-block')} + ''">终止</a>
+            </td>
+        </tr>
+        <tr>
+            <td>链接：</td>
+            <td>
+                <input id="share-link-page" class="easyui-textbox" type="text" data-options="editable:false"
+                       style="width:500px" th:value="${shareInfo.realLink}"/>
+                <input id="share-link" type="text" th:value="${shareInfo.realLink}"
+                       style="position:absolute;top:-10000px;"/>
+                <a id="share-link-button" href="javascript:void(0)" class="easyui-linkbutton" style="width:80px"
+                   data-clipboard-target="#share-link">复制链接</a>
+            </td>
+        </tr>
+        <tr>
+            <td>校验码：</td>
+            <td>
+                <input class="easyui-textbox" id="share-code" type="text" data-options="editable:false" style="width:80px"
+                       th:value="${shareInfo.code}"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>请将链接和校验码发送给客户。</td>
+        </tr>
+    </table>
+</div>
+<div id="dlg-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="shareClose()">确认</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="shareClose()">取消</a>
+</div>
+</body>
+<script>
+
+    var currentCompositionCustomerId = undefined;
+    var editIndex = undefined;
+    var defaultSelectedNodeId = undefined;
+    $('#ml-tabs').tabs({
+        cache: true,
+        itemOptions: [
+            {cache: true}
+        ],
+        onSelect: function (title, index) {
+            if (index === 0) reloadMlTab();
+            if (index === 1) reloadReportTab();
+            // if (index === 2) reloadAttachmentTab();
+        }
+    });
+
+    function deleteFile(id, isReport) {
+        $.messager.confirm('确认', '是否确定删除此文件？', function (r) {
+            if (r) {
+                $.ajax({
+                    url: '/ml/delete-file/' + id,
+                    type: 'get',
+                    success: function () {
+                        if (currentCompositionCustomerId) {
+                            // isReport ? reloadReportTab() : reloadAttachmentTab();
+                            reloadReportTab();
+                        }
+                    },
+                    error: function () {
+                        return false;
+                    }
+                });
+            }
+        });
+    }
+
+    // ############# 资料清单Tab页方法区 #############
+    // function reloadMlTab() {
+    //     if (currentCompositionCustomerId) {
+    //         $("#txt-ml-search").textbox('setValue', '');
+    //         loadMaterialListDatagrid('');
+    //     }
+    // }
+
+    function mlSearch(value) {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+        loadMaterialListDatagrid(value);
+    }
+
+    function loadMaterialListDatagrid(mlName) {
+        $.ajax({
+            url: '/ml/material-list/' + currentCompositionCustomerId,
+            type: 'POST',
+            data: {searchName: mlName},
+            success: function (data) {
+                $("#dg-material-list").datagrid("loadData", data);
+            },
+            error: function () {
+                return false;
+            }
+        });
+    }
+
+    // ----- 资料清单Datagrid方法区 -----
+
+    function endEditing() {
+        if (editIndex == undefined) {
+            return true
+        }
+        if ($('#dg-material-list').datagrid('validateRow', editIndex)) {
+            $('#dg-material-list').datagrid('endEdit', editIndex);
+            editIndex = undefined;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function insert() {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+
+        accept();
+
+        if (endEditing()) {
+            editIndex = $('#dg-material-list').datagrid('getRowIndex', $('#dg-material-list').datagrid('getSelected'));
+            if (editIndex === -1) {
+                editIndex = $('#dg-material-list').datagrid('getRows').length - 1;
+            }
+
+            editIndex = editIndex + 1;
+            $('#dg-material-list').datagrid('insertRow', {
+                index: editIndex,
+                row: {
+                    id: null,
+                    name: '',
+                    compositionCustomerId: currentCompositionCustomerId
+                }
+            });
+            $('#dg-material-list').datagrid('selectRow', editIndex).datagrid('beginEdit', editIndex);
+        }
+    }
+
+    function remove() {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+
+        if (editIndex === undefined) {
+            return
+        }
+        $('#dg-material-list').datagrid('cancelEdit', editIndex)
+            .datagrid('deleteRow', editIndex);
+        editIndex = undefined;
+    }
+
+    function accept() {
+        if (endEditing()) {
+            $('#dg-material-list').datagrid('acceptChanges');
+        }
+    }
+
+    function saveMaterialList() {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+
+        accept();
+
+        $.ajax({
+            url: '/ml/material-list/' + currentCompositionCustomerId + '/save',
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify($('#dg-material-list').datagrid("getData").rows),
+            dataType: 'json',
+            success: function (data) {
+                $("#dg-material-list").datagrid("loadData", data);
+            },
+            error: function () {
+                return false;
+            }
+        });
+    }
+
+     function creatShare(id){
+         console.log(id);
+         $.ajax({
+             url: '/ml/creatShare/'+ projectId + '/' + userCode,
+             type: 'POST',
+             success: function (data) {
+                 console.log(data.id);
+
+                 // if(data.id != id){
+                 //     $("#valid-date").text("");
+                 //     $("#share-terminate-button").show();
+                 //     $("#share-renew-button").attr('href');
+                 //     $("#share-renew-button").attr("onclick","shareTerminate("+data.id+");");
+                 //     // $("#share-link").textbox("setValue",data.realLink);
+                 //     // $("#share-link-page").textbox("setValue",data.realLink);
+                 //     // $("#share-code").textbox("setValue",data.code);
+                 // }
+                  $('#dlg').dialog('open');
+             },
+             error: function () {
+                 $.messager.alert('错误', '创建失败!', 'error');
+             }
+         });
+     }
+
+     function shareClose(){
+         $('#dlg').dialog('close');
+         window.location.reload();
+     }
+
+    $.extend($.fn.datagrid.methods, {
+        editCell: function (jq, param) {
+            return jq.each(function () {
+                var opts = $(this).datagrid('options');
+                var fields = $(this).datagrid('getColumnFields', true).concat($(this).datagrid('getColumnFields'));
+                for (var i = 0; i < fields.length; i++) {
+                    var col = $(this).datagrid('getColumnOption', fields[i]);
+                    col.editor1 = col.editor;
+                    if (fields[i] != param.field) {
+                        col.editor = null;
+                    }
+                }
+                $(this).datagrid('beginEdit', param.index);
+                var ed = $(this).datagrid('getEditor', param);
+                if (ed) {
+                    if ($(ed.target).hasClass('textbox-f')) {
+                        $(ed.target).textbox('textbox').focus();
+                    } else {
+                        $(ed.target).focus();
+                    }
+                }
+                for (var i = 0; i < fields.length; i++) {
+                    var col = $(this).datagrid('getColumnOption', fields[i]);
+                    col.editor = col.editor1;
+                }
+            });
+        },
+        enableCellEditing: function (jq) {
+            return jq.each(function () {
+                var dg = $(this);
+                var opts = dg.datagrid('options');
+                opts.oldOnClickCell = opts.onClickCell;
+                opts.onClickCell = function (index, field) {
+                    if (opts.editIndex !== undefined) {
+                        if (dg.datagrid('validateRow', opts.editIndex)) {
+                            dg.datagrid('endEdit', opts.editIndex);
+                            opts.editIndex = undefined;
+                        } else {
+                            return;
+                        }
+                    }
+                    dg.datagrid('selectRow', index).datagrid('editCell', {
+                        index: index,
+                        field: field
+                    });
+                    editIndex = opts.editIndex = index;
+                    opts.oldOnClickCell.call(this, index, field);
+                }
+            });
+        }
+    });
+
+    ///资料清单上传列表=========================================
+    function reloadMlTab() {
+        if (currentCompositionCustomerId) {
+            loadMlListDatagrid('');
+        }
+    }
+
+    $('#open-file-ml').filebox({
+        buttonText: '选择文件',
+        buttonAlign: 'right',
+        accept:
+            'text/plain,' +
+            'text/csv,' +
+            'application/msword,' +
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document,' +
+            'application/vnd.ms-excel,' +
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' +
+            'application/vnd.ms-powerpoint,' +
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation,' +
+            'application/pdf,' +
+            'image/jpg,' +
+            'image/jpeg,' +
+            'image/png,' +
+            'image/bmp,' +
+            'image/gif,' +
+            'aplication/zip' +
+            'aplication/rar',
+        multiple: true
+    });
+
+    function uploadMl() {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+        if (!$('#open-file-ml').filebox('getValue')) {
+            return;
+        }
+
+        $('#ml-file-upload-form').form('submit', {
+            url: '/ml/ml-file-upload/' + currentCompositionCustomerId,
+            success: function () {
+                $("#open-file-ml").textbox('setValue','');
+                $("#txt-ml-search").textbox('setValue','');
+                reloadMlTab();
+            }
+        });
+    }
+
+    function loadMlListDatagrid(mlName) {
+        $.ajax({
+            url: '/ml/ml-file-list/' + currentCompositionCustomerId,
+            type: 'POST',
+            data: {searchStr: mlName},
+            success: function (data) {
+                $("#dg-material-list").datagrid("loadData", data);
+            },
+            error: function () {
+                return false;
+            }
+        });
+    }
+
+    function attachmentMlSearch(value) {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+        loadMlListDatagrid(value);
+    }
+
+    function dgMlListNameFormator(value, row) {
+        return "<a href='/ml/download-file/" + row.id + "'>" + row.fileName + "</a>";
+    }
+
+    function dgMlListOperFormator(value, row) {
+        return "<a href=\"javascript:void(0)\" onclick=\"deleteMlAttachment(" + row.id + ")\">删除</a>";
+    }
+
+    function deleteMlAttachment(id) {
+        $.messager.confirm('确认', '是否确定删除此文件？', function (r) {
+            if (r) {
+                $.ajax({
+                    url: '/ml/delete-file/' + id,
+                    type: 'get',
+                    success: function () {
+                        if (currentCompositionCustomerId) {
+                            reloadMlTab();
+                        }
+                    },
+                    error: function () {
+                        return false;
+                    }
+                });
+            }
+        });
+    }
+
+
+
+
+
+    // ----- 资料清单Datagrid方法区结束 -----
+
+    // ############# 资料清单Tab页方法区结束 #############
+
+
+    // ############# 报表及科目明细表上传Tab页方法区 #############
+    function reloadReportTab() {
+        $('#open-file-report').textbox('setValue', '');
+        $("#txt-report-search").textbox('setValue', '');
+        if (currentCompositionCustomerId) {
+            loadReportListDatagrid('');
+        }
+    }
+
+    $('#open-file-report').filebox({
+        buttonText: '选择文件',
+        buttonAlign: 'right',
+        accept:
+            'text/plain,' +
+            'text/csv,' +
+            'application/msword,' +
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document,' +
+            'application/vnd.ms-excel,' +
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' +
+            'application/vnd.ms-powerpoint,' +
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation,' +
+            'application/pdf,' +
+            'image/jpg,' +
+            'image/jpeg,' +
+            'image/png,' +
+            'image/bmp,' +
+            'image/gif,' +
+            'aplication/zip' +
+            'aplication/rar',
+        multiple: true
+    });
+
+    function uploadReport() {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+        if (!$('#open-file-report').filebox('getValue')) {
+            return;
+        }
+
+        //1 表示为审计人员上传的附件
+        $('#report-file-upload-form').form('submit', {
+            url: '/ml/report-file-upload/' + currentCompositionCustomerId + '/1',
+            success: function () {
+                reloadReportTab();
+            }
+        });
+    }
+
+    function downloadTemplate(){
+        $('<div></div>>').dialog({
+            title:'模板下载',
+            id:'downloadGrid',
+            width: 400,
+            height: 400,
+            href:'/ml/downloadFile/downloadListHtml',
+            onLoad:function(){
+
+            },
+            onClose:function(){
+                $("#downloadGrid").dialog("destroy");
+            }
+        });
+
+    }
+
+    function loadReportListDatagrid(mlName) {
+        $.ajax({
+            url: '/ml/report-file-list/' + currentCompositionCustomerId,
+            type: 'POST',
+            data: {searchStr: mlName},
+            success: function (data) {
+                $("#dg-report-list").datagrid("loadData", data);
+            },
+            error: function () {
+                return false;
+            }
+        });
+    }
+
+    function reportSearch(value) {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+        loadReportListDatagrid(value);
+    }
+
+    function dgReportListNameFormator(value, row) {
+        return "<a href='/ml/download-file/" + row.id + "'>" + row.fileName + "</a>";
+    }
+
+    function dgReportListOperFormator(value, row) {
+        return "<a href=\"javascript:void(0)\" onclick=\"deleteReport(" + row.id + ")\">删除</a>";
+    }
+
+    function deleteReport(id) {
+        deleteFile(id, true);
+    }
+
+    // ############# 报表及科目明细表上传Tab页方法区结束 #############
+
+
+    // ############# 附件上传Tab页方法区 #############
+
+    function reloadAttachmentTab() {
+        $("#open-file-attachment").textbox('setValue', '');
+        $("#txt-attachment-search").textbox('setValue', '');
+        if (currentCompositionCustomerId) {
+            loadAttachmentListDatagrid('');
+        }
+    }
+
+    $('#open-file-attachment').filebox({
+        buttonText: '选择文件',
+        buttonAlign: 'right',
+        accept:
+            'text/plain,' +
+            'text/csv,' +
+            'application/msword,' +
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document,' +
+            'application/vnd.ms-excel,' +
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,' +
+            'application/vnd.ms-powerpoint,' +
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation,' +
+            'application/pdf,' +
+            'image/jpg,' +
+            'image/jpeg,' +
+            'image/png,' +
+            'image/bmp,' +
+            'image/gif,' +
+            'aplication/zip' +
+            'aplication/rar',
+        multiple: true
+    });
+
+    function uploadAttachment() {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+        if (!$('#open-file-attachment').filebox('getValue')) {
+            return;
+        }
+
+        $('#attachment-file-upload-form').form('submit', {
+            url: '/ml/attachment-file-upload/' + currentCompositionCustomerId,
+            success: function () {
+                reloadAttachmentTab();
+            }
+        });
+    }
+
+    function loadAttachmentListDatagrid(mlName) {
+        $.ajax({
+            url: '/ml/attachment-file-list/' + currentCompositionCustomerId,
+            type: 'POST',
+            data: {searchStr: mlName},
+            success: function (data) {
+                $("#dg-attachment-list").datagrid("loadData", data);
+            },
+            error: function () {
+                return false;
+            }
+        });
+    }
+
+    function attachmentSearch(value) {
+        if (!currentCompositionCustomerId) {
+            $.messager.alert('注意', '请先选择单位!', 'warning');
+            return;
+        }
+        loadAttachmentListDatagrid(value);
+    }
+
+    function dgAttachmentListNameFormator(value, row) {
+        return "<a href='/ml/download-file/" + row.id + "'>" + row.fileName + "</a>";
+    }
+
+    function dgAttachmentListOperFormator(value, row) {
+        return "<a href=\"javascript:void(0)\" onclick=\"deleteAttachment(" + row.id + ")\">删除</a>";
+    }
+
+    function deleteAttachment(id) {
+        deleteFile(id, false);
+    }
+
+    // ############# 附件上传Tab页方法区结束 #############
+
+
+    // ------------- 分享层方法区 -------------
+
+    var clipboard = new ClipboardJS('#share-link-button');
+    clipboard.on('success', function (e) {
+        e.clearSelection();
+    });
+    clipboard.on('error', function (e) {
+        console.error('Trigger:', e.trigger);
+    });
+
+    $('#share-link-button').tooltip({
+        position: 'right',
+        content: '<span style="color:#fff">复制成功</span>',
+        showEvent: 'click',
+        onShow: function () {
+            $(this).tooltip('tip').css({
+                backgroundColor: '#666',
+                borderColor: '#666'
+            });
+        }
+    });
+
+    function shareRenew(id) {
+        $.messager.confirm('确认', '确定续期？', function (r) {
+            if (r) {
+                $.ajax({
+                    url: '/ml/share-renew/' + id,
+                    type: 'POST',
+                    success: function (data) {
+                        $("#valid-date").text(data.validDate);
+                        //$("#share-terminate-button").show();
+                        $.messager.alert('成功', '续期成功!', 'info');
+                    },
+                    error: function () {
+                        $.messager.alert('错误', '续期失败!', 'error');
+                    }
+                });
+            }
+        });
+    }
+
+    function shareTerminate(id) {
+
+        $.messager.confirm('确认', '确定终止分享？', function (r) {
+            if (r) {
+                $.ajax({
+                    url: '/ml/share-terminate/' + id,
+                    type: 'POST',
+                    success: function () {
+                        $("#valid-date").text("已终止");
+                        $("#share-terminate-button").hide();
+                        // $("#share-renew-button").attr("disabled", true);
+                       // $('#share-renew-button').linkbutton('disable');
+                       //  debugger;
+                        $("#share-renew-button").removeAttr('href');//去掉a标签中的href属性
+                        $("#share-renew-button").removeAttr('onclick');//去掉a标签中的onclick事件
+                        // document.getElementByIdx("share-renew-button").disabled=true;
+                        $.messager.alert('成功', '已终止分享!', 'info');
+                        // window.location.reload();
+                    },
+                    error: function () {
+                        $.messager.alert('错误', '终止分享失败!', 'error');
+                    }
+                });
+            }
+        });
+    }
+
+    // ------------- 分享层方法区结束 -------------
+
+
+    // ------------- 左侧部门树方法区 -------------
+
+    function loadDeptTree() {
+        $('#dept-tree').tree({
+            url: '/ml/deptlist/' + projectId + '/' + userCode,
+            method: 'get',
+            formatter: function (node) {
+                if (node.disabled) {
+                    return '<span style=\'color:lightgray;cursor:default\'>' + node.text + '</span>';
+                } else {
+                    if(node.defaultSelected){
+                        defaultSelectedNodeId = node.id;
+                    }
+                    // currentCompositionCustomerId = node.id;
+                    // reloadMlTab();
+                    // reloadReportTab();
+
+
+                    // reloadAttachmentTab();
+                    return node.text;
+                }
+            },
+            onClick: function (node) {
+                if (!node.disabled) {
+                    currentCompositionCustomerId = node.id;
+                    reloadMlTab();
+                    reloadReportTab();
+                    // reloadAttachmentTab();
+                } else {
+                    currentCompositionCustomerId = undefined;
+                }
+                //如果不是该项目下人员则要隐藏相关功能
+                if(node.includeThisPerson){
+                    $("#shareDiv").show();
+                    $("#ml-file-upload-form").show();
+                    $("#dg-material-list").datagrid("showColumn","_oper");
+                    $("#report-file-upload-form").show();
+                    $("#dg-report-list").datagrid("showColumn","_oper");
+                }else{
+                    $("#shareDiv").hide();
+                    $("#ml-file-upload-form").hide();
+                    $("#dg-material-list").datagrid("hideColumn","_oper");
+                    $("#report-file-upload-form").hide();
+                    $("#dg-report-list").datagrid("hideColumn","_oper");
+                }
+            },
+            onLoadSuccess : function(node){
+                var node = $('#dept-tree').tree('find', defaultSelectedNodeId);
+                $('#dept-tree').tree('select', node.target);
+
+                currentCompositionCustomerId = node.id;
+                reloadMlTab();
+                reloadReportTab();
+            }
+        });
+
+    }
+
+    // ------------- 左侧部门树方法区结束 -------------
+
+    (function () {
+        loadDeptTree();
+        $('#dg-material-list').datagrid().datagrid('enableCellEditing');
+    })();
+</script>
+</html>

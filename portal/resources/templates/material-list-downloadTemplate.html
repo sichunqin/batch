@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板下载</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/themes/metro/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/Using/easyui/material-list.css">
+    <script type="text/javascript" src="/Using/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/Using/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/Using/clipboard/clipboard.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+
+            var iInterval = window.setInterval(function(){
+                if($('#templateTable').datagrid().length > 0){
+                    $('#templateTable').datagrid('loadData',[{'name':'企业填报明细表-新准则','type':'new'},{'name':'企业填报明细表-一般企业旧准则','type':'old'}]);
+                    window.clearInterval(iInterval);
+                }
+            },100)
+        })
+        function downloadFunc(){
+            var rows = $('#templateTable').datagrid('getSelections');
+            console.log(rows);
+            if(rows.length == 0){
+                $.messager.alert('提示','请选择一条记录','info');
+                return;
+            }
+            for(var i = 0;i < rows.length;i++){
+                const iframe = document.createElement("iframe");
+                iframe.style.display = "none"; // 防止影响页面
+                iframe.style.height = 0; // 防止影响页面
+                iframe.src = "/ml/download-template-grid/" + rows[i].type;
+                document.body.appendChild(iframe); // 这一行必须，iframe挂在到dom树上才会发请求
+                // 5分钟之后删除（onload方法对于下载链接不起作用，就先抠脚一下吧）
+                setTimeout(()=>{
+                    iframe.remove();
+                }, 5 * 60 * 1000);
+
+                // window.location.href = "/ml/download-template-grid/" + rows[i].type;
+            }
+
+            $("#downloadGrid").dialog("destroy");
+        }
+    </script>
+    <div>
+        <a class="easyui-linkbutton" style="width:100px;margin-left:5px;margin-right:20px;margin-top:5px;" onclick="downloadFunc()">下载</a>
+        <table id="templateTable" class="easyui-datagrid" style="overflow-x:hidden"
+               data-options="fitColumns:true,scrollbarSize:0,singleSelect:false">
+            <thead>
+            <tr>
+                <th data-options="field:'check',checkbox:true"></th>
+                <th data-options="field:'name',width:100,align:'left',halign:'center'">模板名称</th>
+                <th data-options="field:'type',width:100,align:'center',hidden:true">类型</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+
+</html>

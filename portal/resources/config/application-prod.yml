@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;Databasename=DaXinJavaBS
+    tomcat:
+      username: sa
+      password: sa123!
+  redis:
+    host:
+    port:
+    password:
+
+server:
+  port:
+
+pojo:
+  creator:
+    path:
+      formPath:
+      project:
+
+dxn:
+  file:
+    upload-path:
+    cs-upload-path:
+  risk-level:
+    file-path:
+  server-name:
+
+workflow:
+  path:
+
+cas:
+  client-host-url:

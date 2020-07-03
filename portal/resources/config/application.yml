@@ -1,0 +1,148 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    tomcat:
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      initial-size: 15
+      max-active: 40000
+      max-idle: 20
+      min-idle: 10
+      default-auto-commit: true
+      lang: zh_cn.utf-8
+  aop:
+    auto: true #启动aop配置
+    proxy-target-class: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: false
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        event:
+          merge:
+            entity_copy_observer: allow
+        enable_lazy_load_no_trans: true
+    database: sql_server
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+  thymeleaf:
+    prefix:
+      classpath: /templates/
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    database: 0
+
+server:
+  port: 8888
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    session:
+      timeout: PT60M
+
+logging:
+  level:
+    root: INFO
+  file: daxin_log.log
+
+pojo:
+  aiServer: http://bankcheck.youedata.com
+  isDesign: true
+  isUseFilePage: true
+  isUseCache: false
+  isIndependence: true
+  isDeploy: false #部署后会使用客户主键流水，给客正式系统必须改成true,非正式系统一律使用false
+  License:
+  creator:
+    path:
+      package: com.dxn.model
+
+dxn:
+  file:
+    upload-pathFormat: yyyy/MM/dd #小路径
+  job-cron:
+    businessTaskRun: "*/20 * * * * *"
+
+  assertion-filters: /*
+  auth-filters: /*
+  cas-server-login-url: https://cas.dxn.com.cn:8443/cas/login
+  cas-server-logout-url: https://cas.dxn.com.cn:8443/cas/logout
+  cas-server-url-prefix: https://cas.dxn.com.cn:8443/cas
+  request-wrapper-filters: /*
+  sign-out-filters: /logout
+  validate-filters: /*
+  ignore-Pattern: "^${dxn.server-name}/Scripts/\
+    |^${dxn.server-name}/Styles/\
+    |^${dxn.server-name}/Using/\
+    |^${dxn.server-name}/LogOn.html\
+    |^${dxn.server-name}/error\
+    |^${dxn.server-name}/cs/\
+    |^${dxn.server-name}/ml/deptlist\
+    |^${dxn.server-name}/ml/download-file\
+    |^${dxn.server-name}/ml/download-template-grid\
+    |^${dxn.server-name}/ml/start\
+    |^${dxn.server-name}/ml/share\
+    |^${dxn.server-name}/ml/ml-file\
+    |^${dxn.server-name}/ml/report-file\
+    |^${dxn.server-name}/ml/delete-file\
+    |^${dxn.server-name}/webofficeServlet\
+    |^${dxn.server-name}/SystemConfig-Version.do\
+    |^${dxn.server-name}/User-LoginValidate.do\
+    |^${dxn.server-name}/Project-[\\w]*.do\
+    |^${dxn.server-name}/ProjectMembers-[\\w]*.do\
+    |^${dxn.server-name}/WorkYearDate-[\\w]*.do\
+    |^${dxn.server-name}/SharedProject-[\\w]*.do\
+    |^${dxn.server-name}/AuditImportance-[\\w]*.do\
+    |^${dxn.server-name}/ManuscriptItem-[\\w]*.do\
+    |^${dxn.server-name}/CommonWeb-[\\w]*.do\
+    |^${dxn.server-name}/BusinessSubclasses-[\\w]*.do\
+    |^${dxn.server-name}/test/\
+    |^${dxn.server-name}/webofficeServlet\
+    |^${dxn.server-name}/WorkFlow-Expression.json\
+    |^${dxn.server-name}/Server.json\
+    |^${dxn.server-name}/QRCodeShowForm-Schema.html\
+    |^${dxn.server-name}/QRCodeShowForm-Web-UISchema.json\
+    |^${dxn.server-name}/Report-getShowData.do\
+    |^*/WeChatAgentApply.html\
+    |^*/WeChatLoginOn.html\
+    |^*/weChatTest.html\
+    |^*/mobile/\
+    |^*/Mobile-[\\w]*\
+    |^*/WW_verify_WbMrqjP6tkamvIFz.txt\
+    |^*/WW_verify_ZXK8l2hmD4jUIiZ3.txt"
+
+cas:
+  validation-type: CAS
+  server-url-prefix: https://cas.dxn.com.cn:8443/cas
+  server-login-url: https://cas.dxn.com.cn:8443/cas/login
+  redirect-after-validation: true
+  use-session: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+
+
+
+

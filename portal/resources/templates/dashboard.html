@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>综合管理云平台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <link rel="stylesheet" type="text/css" href="Using/easyui/themes/metro/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="Using/easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="Using/OrgChart/jquery.jOrgChart.css"/>
+    <link rel="stylesheet" type="text/css" href="Using/easyui/printArea/PrintArea.css"/>
+    <link rel="stylesheet" type="text/css" href="Using/Uploader/webuploader.css"/>
+    <link rel="stylesheet" type="text/css" href="Styles/Override.css?v=1.0.0.1"/>
+    <link rel="stylesheet" type="text/css" href="Styles/UserInterface.css?v=1.0.0.1"/>
+    <!--JExcelCss-->
+    <link rel="stylesheet" type="text/css" href="Using/JExcel/css/jexcel.css"/>
+    <link rel="stylesheet" type="text/css" href="Using/JExcel/css/jsuites.css"/>
+    <!--日历Css-->
+    <link rel="stylesheet" type="text/css" href="Using/Calendar/dxnCalendar.css"/>
+
+    <script type="text/javascript" src="Using/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="Using/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Using/easyui/printArea/jquery.PrintArea.js"></script>
+    <script type="text/javascript" src="Using/easyui/datagrid-filter/datagrid-filter.js"></script>
+    <script type="text/javascript" src="Using/easyui/datagrid-cellediting.js"></script>
+    <script type="text/javascript" src="Using/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="Using/OrgChart/jquery.jOrgChart.js"></script>
+    <script type="text/javascript" src="Using/Uploader/webuploader.js"></script>
+    <script type="text/javascript" src="Using/clipboard/clipboard.min.js"></script>
+    <script type="text/javascript" src="Scripts/Extensions.js?v=1.0.0.1"></script>
+    <!--富文本-->
+    <script type="text/javascript" src="Using/UEditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="Using/UEditor/ueditor.all.js"></script>
+    <script type="text/javascript" src="Using/UEditor/lang/zh-cn/zh-cn.js"></script>
+    <!--JExcel js-->
+    <script type="text/javascript" src="Using/JExcel/js/jexcel.js"></script>
+    <script type="text/javascript" src="Using/JExcel/js/jsuites.js"></script>
+    <script type="text/javascript" src="Using/JExcel/js/jszip.js"></script>
+    <script type="text/javascript" src="Using/JExcel/js/xlsx.js"></script>
+
+    <!--日历控件-->
+    <script type="text/javascript" src="Using/Calendar/dxnCalendar.js"></script>
+    <!--统计图控件-->
+    <script type="text/javascript" src="Using/Highcharts/code/highcharts.js"></script>
+
+    <script type="text/javascript" src="Scripts/Framework.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/Control.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/NewControl.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/DownloadableFile.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/GridPanel.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/FormPanel.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/TreePanel.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/Panel.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Override.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Global.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/Control/WebUpLoad.js?v=1.0.0.1"></script>
+    <script type="text/javascript" src="Scripts/WebOffice.js?v=1.0.0.1"></script>
+</head>
+<body class="easyui-layout">
+
+<!-- confirmDialog -->
+<div id="confirmDialog"></div>
+<!-- messageDialog -->
+<div id="messageDialog"></div>
+<!-- profile -->
+<input name="profile" type="hidden" id="profile" th:value="${profile}"/>
+<!-- profile -->
+<input name="model" type="hidden" id="model" th:value="${model}"/>
+
+<!-- echarts-->
+<script type="text/javascript" src="Using/echarts/echarts.min.js"></script>
+</body>
+</html>

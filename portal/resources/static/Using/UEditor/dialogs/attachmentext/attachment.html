@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ueditor图片对话框</title>
+    <script type="text/javascript" src="../internal.js"></script>
+
+    <!-- jquery -->
+    <script type="text/javascript" src="../../third-party/jquery-1.10.2.min.js"></script>
+    <!-- attachment dialog -->
+    <link rel="stylesheet" href="attachment.css" type="text/css" />
+</head>
+<body class="easyui-layout" style="fit:true">
+	<link rel="stylesheet" type="text/css" href="../../../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../../easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../../easyui/demo/demo.css">
+	<script type="text/javascript" src="../../../easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#treeData').tree({
+				onClick: function(node){
+					$("#attachmentName").datagrid("load",{"treeId":node.id});
+				}
+			});
+		});
+	</script>
+
+	<div class="easyui-layout" style="width:100%;height: 100%;">
+		<div id="p" data-options="region:'west'" style="width:200px;">
+			<div class="easyui-panel" style="width:100%;height: 100%;">
+				<ul class="easyui-tree" id="treeData" name="treeData" data-options="url:'../../../../DocumentCenterTreeJurisdiction-queryTree.do',method:'get',animate:true,lines:true"></ul>
+			</div>
+		</div>
+		<div data-options="region:'center'" style="width:100%;height: 100%;">
+			<table id="attachmentName" name="attachmentName" class="easyui-datagrid" data-options="url:'../../../../DocumentCenterList-queryDocumentData.do'">
+				<thead>
+				<tr>
+					<th data-options="field:'ck',halign:'center',checkbox:true"></th>
+					<th data-options="field:'name',halign:'center',width:'95%'">文档名称</th>
+				</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+    <script type="text/javascript" src="attachment.js"></script>
+</body>
+</html>

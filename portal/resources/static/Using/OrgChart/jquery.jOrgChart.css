@@ -1,0 +1,92 @@
+/* Basic styling */
+/* Draw the lines */
+.jOrgChart .line
+{
+    height: 20px;
+    width: 4px;
+}
+
+.jOrgChart .down
+{
+    background-color: black;
+    margin: 0px auto;
+}
+
+.jOrgChart .top
+{
+    border-top: 3px solid black;
+}
+
+.jOrgChart .left
+{
+    border-right: 2px solid black;
+}
+
+.jOrgChart .right
+{
+    border-left: 2px solid black;
+}
+
+/* node cell */
+.jOrgChart td
+{
+    text-align: center;
+    vertical-align: top;
+    padding: 0;
+}
+
+/* The node */
+.jOrgChart .node
+{
+    background-color: #35363B;
+    display: inline-block;
+    width: 96px;
+    height: 60px;
+    z-index: 10;
+    margin: 0 2px;
+}
+
+/* jQuery drag 'n drop */
+
+.drag-active
+{
+    border-style: dotted !important;
+}
+
+.drop-hover
+{
+    border-style: solid !important;
+    border-color: #E05E00 !important;
+}
+
+.orgChartDelete
+{
+    width: 16px;
+    height: 16px;
+    background: rgba(0, 0, 0, 0) url("../easyui/themes/icons/clear.png") no-repeat scroll center center;
+    float: right;
+}
+
+.orgChartTitle
+{
+    clear: right;
+}
+
+.orgChartCreateChildren
+{
+    width: 16px;
+    height: 16px;
+    background: rgba(0, 0, 0, 0) url("../easyui/themes/icons/edit_add.png") no-repeat scroll center center;
+    float:left;
+    margin-top:50px;
+    margin-left:33px;
+}
+
+.orgChartModifyColumn
+{
+    width: 16px;
+    height: 16px;
+    background: rgba(0, 0, 0, 0) url("../easyui/themes/icons/pencil.png") no-repeat scroll center center;
+    float:right;
+    margin-top:50px;
+}

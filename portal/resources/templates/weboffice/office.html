@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+>
+<head>
+    <title>在线打开/保存Word文档</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+    <script src="Scripts/sign/WebOffice.js"></script>
+
+    <script type="text/javascript">
+        var WebOfficeObj = new WebOffice2015(); //创建WebOffice对象
+    </script>
+
+    <script language="javascript">
+        var recordId;
+        var fileName;
+        var fileType;
+        var filePath;
+        var userName;
+        var isSign;
+        var readOnly;
+        var entityType;
+        var entityId;
+
+        // 金格MultiPart方式在线打开文档
+        function Load() {
+            recordId = document.getElementById('recordId').innerText;
+            fileName = document.getElementById('fileName').innerText;
+            fileType = document.getElementById('fileType').innerText;
+            filePath = document.getElementById('filePath').innerText;
+            userName = document.getElementById('userName').innerText;
+            isSign = document.getElementById('isSign').innerText;
+            readOnly = document.getElementById('readOnly').innerText;
+            entityType = document.getElementById('entityType').innerText;
+            entityId = document.getElementById('entityId').innerText;
+            if (readOnly == "true") {
+                document.getElementById('showTD').style.visibility = 'hidden';
+            }
+            try {
+                WebOfficeObj.ServerUrl = "http://" + window.location.host + "/webofficeServlet?docType=1";
+                WebOfficeObj.UserName = userName;
+                WebOfficeObj.RecordID = recordId;
+                WebOfficeObj.FilePath = filePath;
+                WebOfficeObj.FileName = fileName;
+                WebOfficeObj.FileType = fileType;             //FileType:文档类型  .doc  .xls
+                WebOfficeObj.ShowWindow = false;				//true显示进度条//false隐藏进度条
+                WebOfficeObj.obj.Style.ShowOpenProgress = false; //开启、关闭打开文档时的进度条
+                WebOfficeObj.obj.FuncExtModule.FileType = WebOfficeObj.FileType;
+                WebOfficeObj.WebSetMsgByName("FilePath", filePath);
+                WebOfficeObj.WebSetMsgByName("entityType", entityType);
+                WebOfficeObj.WebSetMsgByName("entityId", entityId);
+                //WebOfficeObj.obj.FuncExtModule.WebCreateProcess();          //创建空进程避免打开慢
+                WebOfficeObj.EditType = "1";				//设置加载文档类型 0 锁定文档，1无痕迹模式，2带痕迹模式
+                WebOfficeObj.ShowMenu = 0;
+                WebOfficeObj.ShowToolBar = 0;
+                WebOfficeObj.ShowMenuBar(false);  //隐藏工具栏菜单
+                WebOfficeObj.ShowToolBars(false);//Office工具栏
+                WebOfficeObj.ShowCustomToolbar(false);
+                // WebOfficeObj.SetCaption(WebOfficeObj.UserName + "正在编辑文档");
+                SetGraySkin();			//设置控件皮肤
+                if (WebOfficeObj.WebOpen()) {
+                    StatusMsg(WebOfficeObj.Status);
+                }
+            } catch (e) {
+                StatusMsg(e.description);
+            }
+        }
+
+        //设置页面中的状态值
+        function StatusMsg(mValue) {
+            try {
+                document.getElementById('StatusBar').value = mValue;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        //烟枪灰皮肤
+        function SetGraySkin() {
+            //参数顺序依次为：控件标题栏颜色、自定义菜单开始颜色、自定义工具栏按钮开始颜色、自定义工具栏按钮结束颜色、
+            //自定义工具栏按钮边框颜色、自定义工具栏开始颜色、控件标题栏文本颜色（默认值为：0x000000）
+            if (!WebOfficeObj.WebSetSkin(0xdbdbdb, 0xeaeaea, 0xeaeaea, 0xdbdbdb, 0xdbdbdb, 0xdbdbdb, 0x000000))
+                WebOfficeObj.Alert(WebOfficeObj.Status);
+        }
+
+        function OnUnLoad() {
+            WebOfficeObj.WebClose();
+        }
+
+        //前后台交互，key在后台接收
+        function SendMessage() {
+            //如果非ie浏览器调用IsModify隐藏插件避免窗体被遮挡
+            WebOfficeObj.HidePlugin(0);
+            var info = window.prompt("请输入要传到服务器处理页面上的内容:", "参数内容");
+            //如果非ie浏览器调用IsModify隐藏插件避免窗体被遮挡
+            if (info == null) {
+                return false
+            }
+            WebOfficeObj.WebSetMsgByName("TESTINFO", info);  //USERNAME在后获取
+            if (WebOfficeObj.WebSendMessage()) {  		// 交互信息为INPORTTEXT
+                WebOfficeObj.Alert(WebOfficeObj.WebGetMsgByName("RETURNINFO")); //USERNAME值为对应后台的key
+            } else {
+                WebOfficeObj.Alert("客户端Web发送数据包命令没有合适的处理函数");
+            }
+            WebOfficeObj.HidePlugin(1);
+        }
+
+        function WebOpenPrint() {
+            WebOfficeObj.WebOpenPrint();
+        }
+
+    </script>
+
+    <script language="javascript" for="WebOffice" event="OnReady()">
+        WebOfficeObj.setObj(document.getElementById('WebOffice'));//给2015对象赋值
+        Load();//避免页面加载完，控件还没有加载情况
+    </script>
+
+    <!--以下是多浏览器的事件方法 -->
+    <script type="text/javascript">
+        function OnReady() {
+            WebOfficeObj.setObj(document.getElementById('WebOffice'));//给2015对象赋值
+            //Load();//避免页面加载完，控件还没有加载情况
+            setTimeout(function () {
+                Load();
+            }, 500);
+        }
+    </script>
+</head>
+<body onUnload="OnUnLoad();" onbeforeunload="OnUnLoad();">
+<div style="width: 100%; height: 100%">
+    <div id="OfficeDiv" style="width: 100%; height: 75%;">
+        <script src="Scripts/sign/iWebOffice2015.js"></script>
+    </div>
+    <div id="showTD" style="width: 100%;">
+        <input style="color:Red;" type=button value="打印" onclick="WebOpenPrint()">
+        <span id="recordId" style="display: none" th:text="${recordId}" class="red_ero"></span>
+        <span id="fileName" style="display: none" th:text="${fileName}" class="red_ero"></span>
+        <span id="fileType" style="display: none" th:text="${fileType}" class="red_ero"></span>
+        <span id="filePath" style="display: none" th:text="${filePath}" class="red_ero"></span>
+        <span id="userName" style="display: none" th:text="${userName}" class="red_ero"></span>
+        <span id="isSign" style="display: none" th:text="${isSign}" class="red_ero"></span>
+        <span id="readOnly" style="display: none" th:text="${readOnly}" class="red_ero"></span>
+        <span id="entityType" style="display: none" th:text="${entityType}" class="red_ero"></span>
+        <span id="entityId" style="display: none" th:text="${entityId}" class="red_ero"></span>
+    </div>
+
+</div>
+</body>
+</html>

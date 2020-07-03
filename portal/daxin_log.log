@@ -1,0 +1,765 @@
+2020-05-16 15:32:52.092  INFO 6764 --- [main] com.dxn.Application                      : Starting Application v0.0.1-SNAPSHOT on DESKTOP-V98N9UP with PID 6764 (F:\Play_Code\docker\portal\portal-0.0.1-SNAPSHOT.jar started by Lu in F:\Play_Code\docker\portal)
+2020-05-16 15:32:52.098 DEBUG 6764 --- [main] com.dxn.Application                      : Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2020-05-16 15:32:52.098  INFO 6764 --- [main] com.dxn.Application                      : The following profiles are active: dev
+2020-05-16 15:32:54.730  INFO 6764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-16 15:32:54.732  INFO 6764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-16 15:32:55.426  INFO 6764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 676ms. Found 21 repository interfaces.
+2020-05-16 15:32:55.478  INFO 6764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-16 15:32:55.480  INFO 6764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-16 15:32:55.588  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.repository.EntityRepository.
+2020-05-16 15:32:55.589  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.repository.IUnitOfWork.
+2020-05-16 15:32:55.591  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.AuditFilesRepository.
+2020-05-16 15:32:55.592  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CodeRuleSequenceNumberRepository.
+2020-05-16 15:32:55.593  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerRepository.
+2020-05-16 15:32:55.594  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.DeptManagementScopeRepository.
+2020-05-16 15:32:55.595  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ProjectMembersRepository.
+2020-05-16 15:32:55.596  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CodeRuleRecycledCodeRepository.
+2020-05-16 15:32:55.600  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerMaterialListRepository.
+2020-05-16 15:32:55.602  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.DepartmentRepository.
+2020-05-16 15:32:55.604  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ManuscriptItemArchiveRepository.
+2020-05-16 15:32:55.605  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.UserRepository.
+2020-05-16 15:32:55.608  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CodeRuleRepository.
+2020-05-16 15:32:55.612  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerMaterialListShareRepository.
+2020-05-16 15:32:55.618  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.DepartmentVsUserRepository.
+2020-05-16 15:32:55.624  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ManuscriptItemRepository.
+2020-05-16 15:32:55.637  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.AuditFilesVSManuscriptRepository.
+2020-05-16 15:32:55.666  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerFileRepository.
+2020-05-16 15:32:55.670  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionMembersRepository.
+2020-05-16 15:32:55.673  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.EntityMapRepository.
+2020-05-16 15:32:55.675  INFO 6764 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ProjectRepository.
+2020-05-16 15:32:55.677  INFO 6764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 161ms. Found 0 repository interfaces.
+2020-05-16 15:32:56.903  INFO 6764 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e9a15dc3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 15:32:57.295  INFO 6764 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'configUtil' of type [com.dxn.system.cache.ConfigUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 15:32:57.704  INFO 6764 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'lettuceConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 15:32:57.731  INFO 6764 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.dxn.system.configuration.RedisConfig$$EnhancerBySpringCGLIB$$3dd154ef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 15:32:58.978  INFO 6764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-16 15:32:59.037  INFO 6764 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-16 15:32:59.044  INFO 6764 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-16 15:32:59.077  INFO 6764 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\Git\cmd;C:\WINDOWS\System32\OpenSSH\;E:\Java\jdk1.8.0_221\bin;E:\apache-maven-3.3.3\\bin;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Lu\AppData\Local\Microsoft\WindowsApps;C:\Users\Lu\.dotnet\tools;C:\Users\Lu\AppData\Local\Programs\Microsoft VS Code\bin;E:\apache-maven-3.3.3\bin;f:\software;;E:\Fiddler;.]
+2020-05-16 15:32:59.449  INFO 6764 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-16 15:32:59.450  INFO 6764 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7283 ms
+2020-05-16 15:33:00.763  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [serverName] loaded from FilterConfig.getInitParameter with value [http://192.168.40.22:8080]
+2020-05-16 15:33:00.771  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [useSession] loaded from FilterConfig.getInitParameter with value [true]
+2020-05-16 15:33:00.774  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [casServerUrlPrefix] loaded from FilterConfig.getInitParameter with value [https://cas.dxn.com.cn:8443/cas]
+2020-05-16 15:33:00.780  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [encoding] loaded from FilterConfig.getInitParameter with value [UTF-8]
+2020-05-16 15:33:00.783  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [encoding] loaded from FilterConfig.getInitParameter with value [UTF-8]
+2020-05-16 15:33:00.813  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [casServerUrlPrefix] loaded from FilterConfig.getInitParameter with value [https://cas.dxn.com.cn:8443/cas]
+2020-05-16 15:33:00.896  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [serverName] loaded from FilterConfig.getInitParameter with value [http://192.168.40.22:8080]
+2020-05-16 15:33:00.897  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [casServerLoginUrl] loaded from FilterConfig.getInitParameter with value [https://cas.dxn.com.cn:8443/cas/login]
+2020-05-16 15:33:00.903  INFO 6764 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [ignorePattern] loaded from FilterConfig.getInitParameter with value [^http://192.168.40.22:8080/Scripts/|^http://192.168.40.22:8080/Styles/|^http://192.168.40.22:8080/Using/|^http://192.168.40.22:8080/LogOn.html|^http://192.168.40.22:8080/error|^http://192.168.40.22:8080/cs/|^http://192.168.40.22:8080/ml/deptlist|^http://192.168.40.22:8080/ml/download-file|^http://192.168.40.22:8080/ml/download-template-grid|^http://192.168.40.22:8080/ml/start|^http://192.168.40.22:8080/ml/share|^http://192.168.40.22:8080/ml/ml-file|^http://192.168.40.22:8080/ml/report-file|^http://192.168.40.22:8080/ml/delete-file|^http://192.168.40.22:8080/webofficeServlet|^http://192.168.40.22:8080/SystemConfig-Version.do|^http://192.168.40.22:8080/User-LoginValidate.do|^http://192.168.40.22:8080/Project-[\w]*.do|^http://192.168.40.22:8080/ProjectMembers-[\w]*.do|^http://192.168.40.22:8080/WorkYearDate-[\w]*.do|^http://192.168.40.22:8080/SharedProject-[\w]*.do|^http://192.168.40.22:8080/AuditImportance-[\w]*.do|^http://192.168.40.22:8080/ManuscriptItem-[\w]*.do|^http://192.168.40.22:8080/CommonWeb-[\w]*.do|^http://192.168.40.22:8080/BusinessSubclasses-[\w]*.do|^http://192.168.40.22:8080/test/|^http://192.168.40.22:8080/webofficeServlet|^http://192.168.40.22:8080/WorkFlow-Expression.json|^http://192.168.40.22:8080/Server.json|^http://192.168.40.22:8080/QRCodeShowForm-Schema.html|^http://192.168.40.22:8080/QRCodeShowForm-Web-UISchema.json|^http://192.168.40.22:8080/Report-getShowData.do|^*/WeChatAgentApply.html|^*/WeChatLoginOn.html|^*/weChatTest.html|^*/mobile/|^*/Mobile-[\w]*|^*/WW_verify_WbMrqjP6tkamvIFz.txt|^*/WW_verify_ZXK8l2hmD4jUIiZ3.txt]
+2020-05-16 15:33:01.343  INFO 6764 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-16 15:33:01.512  INFO 6764 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2020-05-16 15:33:01.563  INFO 6764 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-16 15:33:01.997  INFO 6764 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-05-16 15:33:04.914  INFO 6764 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+2020-05-16 15:33:20.954  INFO 6764 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-16 15:33:23.008  INFO 6764 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-05-16 15:33:23.412  INFO 6764 --- [main] com.dxn.system.Framework                 : CodeRuleService init() method is called. 
+2020-05-16 15:33:24.372  INFO 6764 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-16 15:33:24.564  WARN 6764 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-16 15:33:24.907  INFO 6764 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-16 15:33:25.500  INFO 6764 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2020-05-16 15:33:25.566  INFO 6764 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-05-16 15:33:25.869  INFO 6764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-16 15:33:25.876  INFO 6764 --- [main] com.dxn.Application                      : Started Application in 34.824 seconds (JVM running for 36.29)
+2020-05-16 15:33:26.077  INFO 6764 --- [main] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-05-16 15:33:26.082  INFO 6764 --- [main] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-05-16 15:33:28.533  INFO 6764 --- [main] com.dxn.system.Framework                 : --- Risk level loaded successful ---
+2020-05-16 15:33:30.106  INFO 6764 --- [main] com.dxn.system.Framework                 : --- FinancialReportType loaded successful ---
+2020-05-16 15:33:30.368  INFO 6764 --- [main] com.dxn.system.Framework                 : --- SecuritiesBusinessType loaded successful ---
+2020-05-16 15:33:33.513  INFO 6764 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 15:43:33.427  INFO 6764 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 15:44:11.589  INFO 6764 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-16 15:44:11.589  INFO 6764 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-16 15:44:11.720  INFO 6764 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 130 ms
+2020-05-16 15:45:02.716 ERROR 6764 --- [http-nio-8080-exec-3] org.jasig.cas.client.util.CommonUtils    : SSL error getting response from host: cas.dxn.com.cn : Error Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.process_record(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:429) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractCasProtocolUrlBasedTicketValidator.retrieveResponseFromServer(AbstractCasProtocolUrlBasedTicketValidator.java:41) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator.validate(AbstractUrlBasedTicketValidator.java:190) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractTicketValidationFilter.doFilter(AbstractTicketValidationFilter.java:204) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) [spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) [spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_221]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_221]
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.Validator.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source) ~[na:1.8.0_221]
+	... 56 common frames omitted
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source) ~[na:1.8.0_221]
+	at java.security.cert.CertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	... 62 common frames omitted
+
+2020-05-16 15:45:02.722 ERROR 6764 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.lang.RuntimeException: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:443) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractCasProtocolUrlBasedTicketValidator.retrieveResponseFromServer(AbstractCasProtocolUrlBasedTicketValidator.java:41) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator.validate(AbstractUrlBasedTicketValidator.java:190) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractTicketValidationFilter.doFilter(AbstractTicketValidationFilter.java:204) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) ~[spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) ~[spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_221]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_221]
+Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.process_record(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:429) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	... 42 common frames omitted
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.Validator.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source) ~[na:1.8.0_221]
+	... 56 common frames omitted
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source) ~[na:1.8.0_221]
+	at java.security.cert.CertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	... 62 common frames omitted
+
+2020-05-16 15:45:03.718 ERROR 6764 --- [http-nio-8080-exec-1] org.jasig.cas.client.util.CommonUtils    : SSL error getting response from host: cas.dxn.com.cn : Error Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.process_record(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:429) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractCasProtocolUrlBasedTicketValidator.retrieveResponseFromServer(AbstractCasProtocolUrlBasedTicketValidator.java:41) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator.validate(AbstractUrlBasedTicketValidator.java:190) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractTicketValidationFilter.doFilter(AbstractTicketValidationFilter.java:204) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) [spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) [spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_221]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_221]
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.Validator.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source) ~[na:1.8.0_221]
+	... 56 common frames omitted
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source) ~[na:1.8.0_221]
+	at java.security.cert.CertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	... 62 common frames omitted
+
+2020-05-16 15:45:04.681 ERROR 6764 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.lang.RuntimeException: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:443) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractCasProtocolUrlBasedTicketValidator.retrieveResponseFromServer(AbstractCasProtocolUrlBasedTicketValidator.java:41) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator.validate(AbstractUrlBasedTicketValidator.java:190) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractTicketValidationFilter.doFilter(AbstractTicketValidationFilter.java:204) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) ~[spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) ~[spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_221]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_221]
+Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.process_record(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:429) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	... 42 common frames omitted
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.Validator.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source) ~[na:1.8.0_221]
+	... 56 common frames omitted
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source) ~[na:1.8.0_221]
+	at java.security.cert.CertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	... 62 common frames omitted
+
+2020-05-16 15:51:11.921 ERROR 6764 --- [http-nio-8080-exec-7] org.jasig.cas.client.util.CommonUtils    : SSL error getting response from host: cas.dxn.com.cn : Error Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.process_record(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:429) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractCasProtocolUrlBasedTicketValidator.retrieveResponseFromServer(AbstractCasProtocolUrlBasedTicketValidator.java:41) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator.validate(AbstractUrlBasedTicketValidator.java:190) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractTicketValidationFilter.doFilter(AbstractTicketValidationFilter.java:204) [cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) [spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) [spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_221]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_221]
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.Validator.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source) ~[na:1.8.0_221]
+	... 56 common frames omitted
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source) ~[na:1.8.0_221]
+	at java.security.cert.CertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	... 62 common frames omitted
+
+2020-05-16 15:51:12.054 ERROR 6764 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.lang.RuntimeException: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:443) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractCasProtocolUrlBasedTicketValidator.retrieveResponseFromServer(AbstractCasProtocolUrlBasedTicketValidator.java:41) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator.validate(AbstractUrlBasedTicketValidator.java:190) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.jasig.cas.client.validation.AbstractTicketValidationFilter.doFilter(AbstractTicketValidationFilter.java:204) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) ~[spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) ~[spring-boot-actuator-2.1.3.RELEASE.jar!/:2.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar!/:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) ~[tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_221]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.16.jar!/:9.0.16]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_221]
+Caused by: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.Handshaker.process_record(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source) ~[na:1.8.0_221]
+	at org.jasig.cas.client.util.CommonUtils.getResponseFromServer(CommonUtils.java:429) ~[cas-client-core-3.5.1.jar!/:3.5.1]
+	... 42 common frames omitted
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.validator.Validator.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source) ~[na:1.8.0_221]
+	... 56 common frames omitted
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source) ~[na:1.8.0_221]
+	at java.security.cert.CertPathBuilder.build(Unknown Source) ~[na:1.8.0_221]
+	... 62 common frames omitted
+
+2020-05-16 15:55:03.407  INFO 6764 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 16:19:56.499  INFO 6764 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 16:19:56.713  INFO 6764 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 16:19:59.617  INFO 6764 --- [Thread-7] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-05-16 16:20:00.725  INFO 6764 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-16 16:20:00.962  INFO 6764 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-05-16 16:20:26.511  INFO 15912 --- [main] com.dxn.Application                      : Starting Application v0.0.1-SNAPSHOT on DESKTOP-V98N9UP with PID 15912 (F:\Play_Code\docker\portal\portal-0.0.1-SNAPSHOT.jar started by Lu in F:\Play_Code\docker\portal)
+2020-05-16 16:20:26.557 DEBUG 15912 --- [main] com.dxn.Application                      : Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2020-05-16 16:20:26.560  INFO 15912 --- [main] com.dxn.Application                      : The following profiles are active: dev
+2020-05-16 16:20:33.075  INFO 15912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-16 16:20:33.078  INFO 15912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-16 16:20:33.810  INFO 15912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 724ms. Found 21 repository interfaces.
+2020-05-16 16:20:33.863  INFO 15912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-16 16:20:33.869  INFO 15912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-16 16:20:33.962  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.repository.EntityRepository.
+2020-05-16 16:20:33.963  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.repository.IUnitOfWork.
+2020-05-16 16:20:33.970  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.AuditFilesRepository.
+2020-05-16 16:20:33.980  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CodeRuleSequenceNumberRepository.
+2020-05-16 16:20:33.988  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerRepository.
+2020-05-16 16:20:33.990  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.DeptManagementScopeRepository.
+2020-05-16 16:20:33.993  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ProjectMembersRepository.
+2020-05-16 16:20:34.015  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CodeRuleRecycledCodeRepository.
+2020-05-16 16:20:34.045  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerMaterialListRepository.
+2020-05-16 16:20:34.054  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.DepartmentRepository.
+2020-05-16 16:20:34.060  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ManuscriptItemArchiveRepository.
+2020-05-16 16:20:34.064  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.UserRepository.
+2020-05-16 16:20:34.094  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CodeRuleRepository.
+2020-05-16 16:20:34.104  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerMaterialListShareRepository.
+2020-05-16 16:20:34.110  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.DepartmentVsUserRepository.
+2020-05-16 16:20:34.125  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ManuscriptItemRepository.
+2020-05-16 16:20:34.155  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.AuditFilesVSManuscriptRepository.
+2020-05-16 16:20:34.188  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionCustomerFileRepository.
+2020-05-16 16:20:34.197  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.CompositionMembersRepository.
+2020-05-16 16:20:34.206  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.EntityMapRepository.
+2020-05-16 16:20:34.237  INFO 15912 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.dxn.custom.repository.ProjectRepository.
+2020-05-16 16:20:34.249  INFO 15912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 348ms. Found 0 repository interfaces.
+2020-05-16 16:20:35.820  INFO 15912 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$56c2853a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 16:20:36.166  INFO 15912 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'configUtil' of type [com.dxn.system.cache.ConfigUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 16:20:37.293  INFO 15912 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'lettuceConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 16:20:37.342  INFO 15912 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.dxn.system.configuration.RedisConfig$$EnhancerBySpringCGLIB$$aaf27c66] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 16:20:40.405  INFO 15912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-16 16:20:40.541  INFO 15912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-16 16:20:40.548  INFO 15912 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-16 16:20:40.649  INFO 15912 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\Java\jdk1.8.0_221\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;E:\Git\cmd;C:\WINDOWS\System32\OpenSSH\;E:\Java\jdk1.8.0_221\bin;E:\apache-maven-3.3.3\\bin;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Lu\AppData\Local\Microsoft\WindowsApps;C:\Users\Lu\.dotnet\tools;C:\Users\Lu\AppData\Local\Programs\Microsoft VS Code\bin;E:\apache-maven-3.3.3\bin;f:\software;;E:\Fiddler;.]
+2020-05-16 16:20:40.989  INFO 15912 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-16 16:20:40.990  INFO 15912 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 14279 ms
+2020-05-16 16:20:42.375  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [serverName] loaded from FilterConfig.getInitParameter with value [http://192.168.40.22:8080]
+2020-05-16 16:20:42.384  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [useSession] loaded from FilterConfig.getInitParameter with value [true]
+2020-05-16 16:20:42.385  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [casServerUrlPrefix] loaded from FilterConfig.getInitParameter with value [https://cas.dxn.com.cn:8443/cas]
+2020-05-16 16:20:42.392  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [encoding] loaded from FilterConfig.getInitParameter with value [UTF-8]
+2020-05-16 16:20:42.400  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [encoding] loaded from FilterConfig.getInitParameter with value [UTF-8]
+2020-05-16 16:20:42.423  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [casServerUrlPrefix] loaded from FilterConfig.getInitParameter with value [https://cas.dxn.com.cn:8443/cas]
+2020-05-16 16:20:42.510  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [serverName] loaded from FilterConfig.getInitParameter with value [http://192.168.40.22:8080]
+2020-05-16 16:20:42.521  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [casServerLoginUrl] loaded from FilterConfig.getInitParameter with value [https://cas.dxn.com.cn:8443/cas/login]
+2020-05-16 16:20:42.534  INFO 15912 --- [main] .j.c.c.c.WebXmlConfigurationStrategyImpl : Property [ignorePattern] loaded from FilterConfig.getInitParameter with value [^http://192.168.40.22:8080/Scripts/|^http://192.168.40.22:8080/Styles/|^http://192.168.40.22:8080/Using/|^http://192.168.40.22:8080/LogOn.html|^http://192.168.40.22:8080/error|^http://192.168.40.22:8080/cs/|^http://192.168.40.22:8080/ml/deptlist|^http://192.168.40.22:8080/ml/download-file|^http://192.168.40.22:8080/ml/download-template-grid|^http://192.168.40.22:8080/ml/start|^http://192.168.40.22:8080/ml/share|^http://192.168.40.22:8080/ml/ml-file|^http://192.168.40.22:8080/ml/report-file|^http://192.168.40.22:8080/ml/delete-file|^http://192.168.40.22:8080/webofficeServlet|^http://192.168.40.22:8080/SystemConfig-Version.do|^http://192.168.40.22:8080/User-LoginValidate.do|^http://192.168.40.22:8080/Project-[\w]*.do|^http://192.168.40.22:8080/ProjectMembers-[\w]*.do|^http://192.168.40.22:8080/WorkYearDate-[\w]*.do|^http://192.168.40.22:8080/SharedProject-[\w]*.do|^http://192.168.40.22:8080/AuditImportance-[\w]*.do|^http://192.168.40.22:8080/ManuscriptItem-[\w]*.do|^http://192.168.40.22:8080/CommonWeb-[\w]*.do|^http://192.168.40.22:8080/BusinessSubclasses-[\w]*.do|^http://192.168.40.22:8080/test/|^http://192.168.40.22:8080/webofficeServlet|^http://192.168.40.22:8080/WorkFlow-Expression.json|^http://192.168.40.22:8080/Server.json|^http://192.168.40.22:8080/QRCodeShowForm-Schema.html|^http://192.168.40.22:8080/QRCodeShowForm-Web-UISchema.json|^http://192.168.40.22:8080/Report-getShowData.do|^*/WeChatAgentApply.html|^*/WeChatLoginOn.html|^*/weChatTest.html|^*/mobile/|^*/Mobile-[\w]*|^*/WW_verify_WbMrqjP6tkamvIFz.txt|^*/WW_verify_ZXK8l2hmD4jUIiZ3.txt]
+2020-05-16 16:20:43.161  INFO 15912 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-05-16 16:20:43.378  INFO 15912 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2020-05-16 16:20:43.382  INFO 15912 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-16 16:20:44.285  INFO 15912 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-05-16 16:20:49.520  INFO 15912 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+2020-05-16 16:21:29.490  INFO 15912 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-16 16:21:37.144  INFO 15912 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-05-16 16:21:38.598  INFO 15912 --- [main] com.dxn.system.Framework                 : CodeRuleService init() method is called. 
+2020-05-16 16:21:41.369  INFO 15912 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-16 16:21:41.538  WARN 15912 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-16 16:21:42.217  INFO 15912 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-16 16:21:43.871  INFO 15912 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2020-05-16 16:21:43.961  INFO 15912 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-05-16 16:21:44.593  INFO 15912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-16 16:21:44.651  INFO 15912 --- [main] com.dxn.Application                      : Started Application in 79.649 seconds (JVM running for 82.686)
+2020-05-16 16:21:49.648  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 16:21:49.787  INFO 15912 --- [main] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-05-16 16:21:49.833  INFO 15912 --- [main] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-05-16 16:21:51.826  INFO 15912 --- [main] com.dxn.system.Framework                 : --- Risk level loaded successful ---
+2020-05-16 16:21:52.015  INFO 15912 --- [main] com.dxn.system.Framework                 : --- FinancialReportType loaded successful ---
+2020-05-16 16:21:52.181  INFO 15912 --- [main] com.dxn.system.Framework                 : --- SecuritiesBusinessType loaded successful ---
+2020-05-16 16:24:59.394  INFO 15912 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-16 16:24:59.395  INFO 15912 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-16 16:24:59.457  INFO 15912 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 61 ms
+2020-05-16 16:25:10.177  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 找到表达式 0 个!
+2020-05-16 16:25:12.599  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 找到表达式 0 个!
+2020-05-16 16:25:13.171  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 用户 超级管理员 登录!
+2020-05-16 16:25:14.428  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 方法:/;jsessionid=1B551ECC04081AA9C2168D87FCEBD6C9 ,执行时间:1249 毫秒!(28)
+2020-05-16 16:25:14.435  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:14.451  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 方法:/;jsessionid=1B551ECC04081AA9C2168D87FCEBD6C9 ,执行时间:7422 毫秒!(28)
+2020-05-16 16:25:14.465  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:16.837  INFO 15912 --- [http-nio-8080-exec-5] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/icon.css ,执行时间:1499 毫秒!(32)
+2020-05-16 16:25:16.840  INFO 15912 --- [http-nio-8080-exec-5] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:16.899  INFO 15912 --- [http-nio-8080-exec-5] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/icon.css ,执行时间:1762 毫秒!(32)
+2020-05-16 16:25:16.905  INFO 15912 --- [http-nio-8080-exec-5] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.031  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Using/easyui/jquery.min.js ,执行时间:1392 毫秒!(36)
+2020-05-16 16:25:17.037  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 方法:/Using/Uploader/webuploader.css ,执行时间:1785 毫秒!(35)
+2020-05-16 16:25:17.100  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:17.103  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Using/easyui/jquery.min.js ,执行时间:1734 毫秒!(36)
+2020-05-16 16:25:17.101  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:17.108  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 方法:/Using/Uploader/webuploader.css ,执行时间:1971 毫秒!(35)
+2020-05-16 16:25:17.120  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.106  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.204  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 方法:/Using/easyui/printArea/PrintArea.css ,执行时间:1177 毫秒!(28)
+2020-05-16 16:25:17.250  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.253  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 方法:/Using/easyui/printArea/PrintArea.css ,执行时间:1226 毫秒!(28)
+2020-05-16 16:25:17.326  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.204  INFO 15912 --- [http-nio-8080-exec-7] com.dxn.system.Framework                 : 方法:/Using/easyui/printArea/PrintArea.css ,执行时间:1918 毫秒!(34)
+2020-05-16 16:25:17.205  INFO 15912 --- [http-nio-8080-exec-4] com.dxn.system.Framework                 : 方法:/Using/OrgChart/jquery.jOrgChart.css ,执行时间:1990 毫秒!(31)
+2020-05-16 16:25:17.206  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/icon.css ,执行时间:1204 毫秒!(29)
+2020-05-16 16:25:17.207  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 方法:/Using/OrgChart/jquery.jOrgChart.css ,执行时间:1197 毫秒!(30)
+2020-05-16 16:25:17.244  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/metro/easyui.css ,执行时间:1907 毫秒!(33)
+2020-05-16 16:25:17.244  INFO 15912 --- [http-nio-8080-exec-10] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/metro/easyui.css ,执行时间:1243 毫秒!(37)
+2020-05-16 16:25:17.612  INFO 15912 --- [http-nio-8080-exec-10] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.619  INFO 15912 --- [http-nio-8080-exec-10] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/metro/easyui.css ,执行时间:1643 毫秒!(37)
+2020-05-16 16:25:17.504  INFO 15912 --- [http-nio-8080-exec-7] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:17.638  INFO 15912 --- [http-nio-8080-exec-7] com.dxn.system.Framework                 : 方法:/Using/easyui/printArea/PrintArea.css ,执行时间:2501 毫秒!(34)
+2020-05-16 16:25:17.574  INFO 15912 --- [http-nio-8080-exec-4] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:17.596  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.931  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/icon.css ,执行时间:1928 毫秒!(29)
+2020-05-16 16:25:17.598  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.986  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 方法:/Using/OrgChart/jquery.jOrgChart.css ,执行时间:1976 毫秒!(30)
+2020-05-16 16:25:17.998  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.601  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:18.029  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 方法:/Using/easyui/themes/metro/easyui.css ,执行时间:2893 毫秒!(33)
+2020-05-16 16:25:17.623  INFO 15912 --- [http-nio-8080-exec-10] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.802  INFO 15912 --- [http-nio-8080-exec-7] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:17.889  INFO 15912 --- [http-nio-8080-exec-4] com.dxn.system.Framework                 : 方法:/Using/OrgChart/jquery.jOrgChart.css ,执行时间:2751 毫秒!(31)
+2020-05-16 16:25:17.942  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:18.030  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:18.056  INFO 15912 --- [http-nio-8080-exec-4] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:20.309  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 方法:/Scripts/Control/GridPanel.js ,执行时间:1037 毫秒!(30)
+2020-05-16 16:25:20.381  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{"v":["1.0.0.1"],"paraList[v]":["1.0.0.1"]}
+2020-05-16 16:25:20.406  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 方法:/Scripts/Control/GridPanel.js ,执行时间:1134 毫秒!(30)
+2020-05-16 16:25:20.409  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 用户:null ,参数:{"v":["1.0.0.1"]}
+2020-05-16 16:25:20.517  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 方法:/Using/Calendar/dxnCalendar.css ,执行时间:1218 毫秒!(33)
+2020-05-16 16:25:20.552  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:20.554  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 方法:/Using/Calendar/dxnCalendar.css ,执行时间:1655 毫秒!(33)
+2020-05-16 16:25:20.563  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:20.573  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 方法:/Scripts/Control/TreePanel.js ,执行时间:1055 毫秒!(35)
+2020-05-16 16:25:20.574  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{"v":["1.0.0.1"],"paraList[v]":["1.0.0.1"]}
+2020-05-16 16:25:20.599  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 方法:/Scripts/Control/TreePanel.js ,执行时间:1082 毫秒!(35)
+2020-05-16 16:25:20.600  INFO 15912 --- [http-nio-8080-exec-8] com.dxn.system.Framework                 : 用户:null ,参数:{"v":["1.0.0.1"]}
+2020-05-16 16:25:21.095  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 方法:/Using/easyui/printArea/jquery.PrintArea.js ,执行时间:1495 毫秒!(51)
+2020-05-16 16:25:21.096  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:21.099  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 方法:/Using/easyui/printArea/jquery.PrintArea.js ,执行时间:2160 毫秒!(51)
+2020-05-16 16:25:21.112  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:21.234  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Using/Highcharts/code/highcharts.js ,执行时间:1986 毫秒!(36)
+2020-05-16 16:25:21.244  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 方法:/Using/JExcel/js/xlsx.js ,执行时间:1818 毫秒!(29)
+2020-05-16 16:25:21.281  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:21.283  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Using/Highcharts/code/highcharts.js ,执行时间:2237 毫秒!(36)
+2020-05-16 16:25:21.285  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:21.282  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:21.326  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 方法:/Using/JExcel/js/xlsx.js ,执行时间:2308 毫秒!(29)
+2020-05-16 16:25:21.332  INFO 15912 --- [http-nio-8080-exec-2] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:21.987  INFO 15912 --- [http-nio-8080-exec-12] com.dxn.system.Framework                 : 方法:/Styles/icons/index/icon_arrow_left_b.png ,执行时间:1459 毫秒!(52)
+2020-05-16 16:25:21.990  INFO 15912 --- [http-nio-8080-exec-12] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:22.001  INFO 15912 --- [http-nio-8080-exec-12] com.dxn.system.Framework                 : 方法:/Styles/icons/index/icon_arrow_left_b.png ,执行时间:1473 毫秒!(52)
+2020-05-16 16:25:22.005  INFO 15912 --- [http-nio-8080-exec-12] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:22.370  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Scripts/Control/Control.js ,执行时间:1081 毫秒!(36)
+2020-05-16 16:25:22.372  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{"v":["1.0.0.1"],"paraList[v]":["1.0.0.1"]}
+2020-05-16 16:25:22.376  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Scripts/Control/Control.js ,执行时间:1087 毫秒!(36)
+2020-05-16 16:25:22.387  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:null ,参数:{"v":["1.0.0.1"]}
+2020-05-16 16:25:22.621  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 方法:/Using/echarts/echarts.min.js ,执行时间:1284 毫秒!(30)
+2020-05-16 16:25:22.644  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{}
+2020-05-16 16:25:22.648  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 方法:/Using/echarts/echarts.min.js ,执行时间:1395 毫秒!(30)
+2020-05-16 16:25:22.693  INFO 15912 --- [http-nio-8080-exec-3] com.dxn.system.Framework                 : 用户:null ,参数:{}
+2020-05-16 16:25:31.615  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Index-Web-UISchema.json ,执行时间:2036 毫秒!(36)
+2020-05-16 16:25:32.081  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{"renderDialog":["false"],"paraList[design]":["false"],"data":[""],"paraList[schemaCode]":["Index"],"paraList[ToJson]":[""],"paraList[appType]":["Web"],"reference":["false"],"modifyReadOnly":["false"],"paraList[data]":[""],"schemaCode":["Index"],"appType":["Web"],"design":["false"],"renderWindows":["false"],"paraList[renderDialog]":["false"],"paraList[reference]":["false"],"paraList[modifyReadOnly]":["false"],"paraList[resetSchema]":["false"],"readOnly":["false"],"resetSchema":["false"],"paraList[superAdmin]":["false"],"r":["0.5618199723425619"],"ToJson":[""],"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"paraList[readOnly]":["false"],"paraList[renderWindows]":["false"],"superAdmin":["false"]}
+2020-05-16 16:25:32.258  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 方法:/Index-Web-UISchema.json ,执行时间:2715 毫秒!(36)
+2020-05-16 16:25:32.446  INFO 15912 --- [http-nio-8080-exec-9] com.dxn.system.Framework                 : 用户:null ,参数:{"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"r":["0.5618199723425619"],"appType":["Web"],"design":["false"],"modifyReadOnly":["false"],"readOnly":["false"],"reference":["false"],"renderDialog":["false"],"renderWindows":["false"],"resetSchema":["false"],"schemaCode":["Index"],"superAdmin":["false"],"ToJson":[""],"data":[""]}
+2020-05-16 16:25:35.197  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 方法:/Menu.json ,执行时间:1596 毫秒!(28)
+2020-05-16 16:25:35.197  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"r":["0.29374627779158324"]}
+2020-05-16 16:25:35.200  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 方法:/Menu.json ,执行时间:1628 毫秒!(28)
+2020-05-16 16:25:35.208  INFO 15912 --- [http-nio-8080-exec-1] com.dxn.system.Framework                 : 用户:null ,参数:{"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"r":["0.29374627779158324"]}
+2020-05-16 16:25:38.406  WARN 15912 --- [http-nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 209, SQLState: S0001
+2020-05-16 16:25:38.409 ERROR 15912 --- [http-nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : 列名 'ReviewOpinionState50' 不明确。
+2020-05-16 16:25:40.415  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 列名 'ReviewOpinionState50' 不明确。
+2020-05-16 16:25:41.314  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 方法:/DraftReviewBatch-gainHomePageManuscriptReviewDTO.do ,执行时间:3987 毫秒!(33)
+2020-05-16 16:25:41.318  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"r":["0.7838948535503156"]}
+2020-05-16 16:25:41.726  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 方法:/DraftReviewBatch-gainHomePageManuscriptReviewDTO.do ,执行时间:4474 毫秒!(33)
+2020-05-16 16:25:41.735  INFO 15912 --- [http-nio-8080-exec-6] com.dxn.system.Framework                 : 用户:null ,参数:{"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"r":["0.7838948535503156"]}
+2020-05-16 16:25:44.579  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 方法:/WorkFlow-GetMyTodoList.json ,执行时间:2291 毫秒!(51)
+2020-05-16 16:25:44.586  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 用户:超级管理员 ,参数:{"formId":["106672"],"paraList[formId]":["106672"],"r":["0.1645948553272012"],"paraList[orderby]":["Created_Time "],"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"orderby":["Created_Time "],"query_ignoreProcessCode":["dgfhlczbcjbg,dgfhlc,dgfhlcfsyfsdmycjbg"],"paraList[page]":["1"],"paraList[rows]":["9"],"page":["1"],"rows":["9"],"paraList[query_ignoreProcessCode]":["dgfhlczbcjbg,dgfhlc,dgfhlcfsyfsdmycjbg"]}
+2020-05-16 16:25:44.590  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 方法:/WorkFlow-GetMyTodoList.json ,执行时间:2486 毫秒!(51)
+2020-05-16 16:25:44.599  INFO 15912 --- [http-nio-8080-exec-11] com.dxn.system.Framework                 : 用户:null ,参数:{"cacheTicket":["21232f297a57a5a743894a0e4a801fc3"],"r":["0.1645948553272012"],"formId":["106672"],"page":["1"],"rows":["9"],"orderby":["Created_Time "],"query_ignoreProcessCode":["dgfhlczbcjbg,dgfhlc,dgfhlcfsyfsdmycjbg"]}
+2020-05-16 16:31:48.610  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 16:41:48.607  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 16:51:48.623  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 17:01:48.606  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 17:11:48.628  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 17:21:48.619  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 17:26:45.225  INFO 15912 --- [Catalina-utility-1] com.dxn.system.Framework                 : 用户 超级管理员 退出!
+2020-05-16 17:26:50.730  INFO 15912 --- [Catalina-utility-1] com.dxn.system.Framework                 : 找到表达式 0 个!
+2020-05-16 17:26:56.363  INFO 15912 --- [Catalina-utility-1] com.dxn.system.Framework                 : 找到表达式 0 个!
+2020-05-16 17:31:48.737  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 17:41:48.618  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 17:51:48.616  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 18:01:48.618  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 18:11:48.632  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 18:21:48.621  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 18:31:48.607  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 18:41:48.625  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 18:51:48.622  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 19:01:48.630  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 19:11:48.615  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 19:21:48.622  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 19:31:48.631  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 19:41:48.639  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 19:51:48.620  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 20:01:48.620  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 20:11:48.627  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 20:21:48.620  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 20:31:48.609  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 20:41:48.608  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 20:51:48.607  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 21:01:48.605  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 21:11:48.619  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 21:21:48.636  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 21:31:48.636  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.
+2020-05-16 21:41:48.638  INFO 15912 --- [pool-3-thread-1] com.dxn.system.Framework                 : CodeRuleService Scheduled task fillTargetColumnMap() is called.

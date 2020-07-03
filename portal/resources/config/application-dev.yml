@@ -1,0 +1,81 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://192.168.70.40:1433;Databasename=DaXinJavaBS
+   # url: jdbc:sqlserver://192.168.70.40:1433;Databasename=DaXinJavaBS_test20200416
+    #url: jdbc:sqlserver://rm-2ze921osm300635khwo.sqlserver.rds.aliyuncs.com:1433;Databasename=daxinjavabs_test
+    tomcat:
+      username: sa
+      password: sa123!
+   # tomcat:
+  #    username: dxn_db2019
+   #   password: Dxn_Data2019
+  redis:
+    host: 192.168.70.32
+    port: 6379
+    password: 123456
+  jpa:
+    #    properties:
+    #      hibernate:
+    #        enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.dxn: DEBUG
+  #    org.hibernate:
+  #        SQL: DEBUG
+  #        type.descriptor.sql.BasicBinder: TRACE
+  file: daxin_log.log
+
+pojo:
+  creator:
+    path:
+      resources: F:\Play_Code\java\daxin_bs\portal\src\main\resources
+      formPath: F:\Play_Code\java\daxin_bs\portal\upload
+      project: F:\Play_Code\java\daxin_bs\domain\src\main\java\com\dxn\model
+  isUseCache: false
+  isDesign: true
+  License: "nRc6KpFk8feIegSD/tZI3gxR/QuJCvF7Z8d4LGJcm1lpZW0SqyP9nVhSXZQcTDay7vsidIUmZfzKmjTQmy0KZpTQS6Q6x7SWhEoNXSgU2cqQl0tz3cAz6EMJrVVcmEKU8Ol/cc8yl05HKPBxVfFPT1fYAjpqh3QdmbpxPOxZ/5ZYezfhH5fN/A0NrpjomCwZ10"
+
+dxn:
+  file:
+    upload-path: F:\Play_Code\java\Daxin_Upload
+    cs-upload-path: F:\Play_Code\java\Daxin_Upload
+  risk-level:
+    file-path: F:\Play_Code\java\Daxin_Upload\RiskLevel.xlsx
+  RegistForm:
+    file-path:  F:\Play_Code\java\Daxin_Upload\RegistForm.xlsx
+  server-name: http://192.168.40.22:8080
+
+workflow:
+  #path: http://192cas:.168.70.239:8081
+  path: http://192.168.70.37:8888
+  #path: http://192.168.40.26:8081
+  # path: http://192.168.70.41:8888
+  # path: http://192.168.40.28:8080
+
+  client-host-url: http://192.168.40.22:8080
+
+
+
+timer:
+  paramsList:
+#    - className: com.dxn.util.Schedule.testSchedule
+#      methodName: testFunction1
+#      timePeriod: 0/3 * * * * ?
+#    - className: com.dxn.util.Schedule.testSchedule
+#      methodName: testFunction2
+#      timePeriod: 0/5 * * * * ?
+#    - className: com.dxn.util.Schedule.testSchedule
+#      methodName: testFunction3
+#      timePeriod: 0/5 * * * * ?
+#    - className: com.dxn.custom.service.ScheduleService
+#      methodName: test
+#      timePeriod: 0/5 * * * * ?
+
+
